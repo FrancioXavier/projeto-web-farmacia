@@ -1,4 +1,4 @@
-# Front-end Projeto X
+# Front-end Projeto Farmácia
 
 Documentação de ferramentas e de usabilidade do repositório.
 
