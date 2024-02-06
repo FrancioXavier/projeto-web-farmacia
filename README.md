@@ -56,3 +56,29 @@ Para utilizar das configurações já feitas na seção anterior será necessár
 * ESLint
 * editorconfig for VS Code
 * Prettier - Code formatter
+
+## Git Flow
+Iremos utilizar Git Flow no projeto, teremos as branchs main, release e develop como branchs principais e branchs para criar novas funcionalidades, corrigir bugs, entre outros. Para mais informações sobre COMANDOS, [clique aqui](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar?utm_term=&utm_campaign=&utm_source=adwords&utm_medium=ppc&hsa_acc=7964138385&hsa_cam=20946398532&hsa_grp=153091871930&hsa_ad=688089973825&hsa_src=g&hsa_tgt=dsa-2258482180963&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQiAzoeuBhDqARIsAMdH14E-zktm1mamIKASgRKLbmqXJXAJc4awHSEyK0MMU0XbXUyKnlUhnScaAsuzEALw_wcB)
+
+### Main
+Será a versão final do projeto (código de produção)
+
+### Release
+É a ponte entre a develop e a main, uma versão mais estável para ser testada antes de subir para a main de forma definitiva.
+
+### Develop
+Será onde ficará as novas funcionalidades do projeto e onde iremos testar essas funcionalidades em uma versão mais estável do projeto
+
+### Feature
+Branch para desenvolvimento, serão diversas branchs (uma para cada nova funcionalidade) que serve para desenvolver e testar a partir da última versão da branch develop, ou seja, ao criar uma nova branch de feature, ela deve ser criada a partir da develop. Além disso o nome de cada branch feature deverá seguir o seguinte exemplo:
+
+```
+feature/nova-funcionalidade
+```
+
+### BugFix
+Criada a partir da develop, deverá ser criada ao ser identificado um bug no projeto, deverá ser criada da seguinte maneira:
+
+```
+bugfix/novo-bug
+```
