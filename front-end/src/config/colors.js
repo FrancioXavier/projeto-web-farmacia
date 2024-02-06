@@ -2,7 +2,7 @@ export const primaryColor = '#4B80C5';
 export const primaryDarkColor = '#004AAD';
 export const primaryLightColor = '#58C2FF';
 
-export const secondaryColor  = '#3B8C6E';
+export const secondaryColor = '#3B8C6E';
 export const secondaryDarkColor = '#1E5959';
 export const secondaryLightColor = '#89D99D';
 

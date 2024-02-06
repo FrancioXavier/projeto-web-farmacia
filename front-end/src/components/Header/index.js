@@ -20,6 +20,8 @@ export default function Header() {
         <FaSignInAlt size={24} />
       </Link>
 
+      <button className="btn btn-primary">Teste</button>
+
       <strong>{botaoClicado ? 'Clicado' : 'Não clicado'}</strong>
     </Nav>
   );
