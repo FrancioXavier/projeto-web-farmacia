@@ -1,26 +1,48 @@
 import React from 'react';
-import { FaHome, FaSignInAlt, FaUserAlt } from 'react-icons/fa';
+import { FaUserAlt, FaShoppingBasket, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import { Nav } from './styled';
 
 export default function Header() {
-  const botaoClicado = useSelector((state) => state.example.botaoClicado);
+  // const botaoClicado = useSelector((state) => state.example.botaoClicado);
 
   return (
-    <Nav>
-      <Link to="/">
+    <Nav className="align-items-center">
+      <div className="col-4 ">
+        <h2 className="d-flex text-center justify-content-center">
+          University Pharmacy
+        </h2>
+      </div>
+      <div className="input-group rounded ">
+        <input
+          type="search"
+          className="form-control rounded p-2"
+          placeholder="Encontre o que deseja "
+          aria-label="Search"
+        />
+        <span className="input-group-text botder-0 " id="search-addon">
+          <i>
+            <FaSearch size={18} />
+          </i>
+        </span>
+      </div>
+      {/* <Link to="/">
         <FaHome size={24} />
-      </Link>
-      <Link to="/login">
-        <FaUserAlt size={24} />
-      </Link>
-      <Link to="/adasd">
-        <FaSignInAlt size={24} />
-      </Link>
+      </Link> */}
+      <div className="col-4 d-flex flex-row justify-content-center align-items-center ">
+        <Link to="/login" className="d-flex flex-row md-2">
+          <FaUserAlt className="m-1" size={24} />
+          <p className="m-1">Entrar/Cadastrar</p>
+        </Link>
+        <Link to="/adasd" className="d-flex flex-row">
+          <FaShoppingBasket className="m-1" size={24} />
+          <p className="m-1">Carrinho</p>
+        </Link>
+      </div>
 
-      <strong>{botaoClicado ? 'Clicado' : 'Não clicado'}</strong>
+      {/* <strong>{botaoClicado ? 'Clicado' : 'Não clicado'}</strong> */}
     </Nav>
   );
 }

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { primaryColor } from '../../config/colors';
+import { primaryDark } from '../../config/colors';
 
 export const Nav = styled.nav`
-  background: ${primaryColor};
+  background: ${primaryDark};
   padding: 20px;
   display: flex;
   align-items: center;
