@@ -2,12 +2,12 @@ import { InformationLight, primaryDark } from '../../config/colors';
 import imageTest from '../../config/img/pampers-teste.png';
 export default function Product() {
   return (
-    <div className="container-fluid w-75 h-75 d-flex align-items-center justify-content-center">
-      <div className="row" style={{ width: '40%' }}>
-        <div className="col">
+    <div className="container-fluid w-75 d-flex align-items-center justify-content-center">
+      <div className="row m-5">
+        <div className="col-sm">
           <div
             className="card border border-0"
-            style={{ width: '100%', backgroundColor: InformationLight }}
+            style={{ backgroundColor: InformationLight }}
           >
             <div className="card-body">
               <img
@@ -20,15 +20,14 @@ export default function Product() {
           </div>
           <div
             className="card mt-5 p-3 border border-0"
-            style={{ width: '100%', backgroundColor: InformationLight }}
+            style={{ backgroundColor: InformationLight }}
           >
             <div className="card-title fw-bolder fs-2">Descrição</div>
             <div className="card-body">Descrição do produto</div>
           </div>
         </div>
-      </div>
-      <div className="row" style={{ width: '40%', height: '100%' }}>
-        <div className="col m-5">
+
+        <div className="col-sm mt-5">
           <div
             className="card border border-0"
             style={{ width: '100%', backgroundColor: InformationLight }}
