@@ -79,7 +79,7 @@ export default function Product() {
               </div>
               <div className="card-text">
                 <input
-                  type="text"
+                  type="number"
                   name="deliverySearch"
                   id="deliverySearch"
                   placeholder="Digite seu cep..."
