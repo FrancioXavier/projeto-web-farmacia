@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { InformationLight, primaryDark } from '../../config/colors';
 import imageTest from '../../config/img/pampers-teste.png';
+import { InputWrapper } from './styled';
 export default function Product() {
+  const [value, setValue] = useState(0);
   return (
     <div className="container-fluid w-75 d-flex align-items-center justify-content-center">
       <div className="row m-5">
@@ -50,14 +53,41 @@ export default function Product() {
                   R$ 45,00
                 </span>
                 <div className="d-flex w-100 justify-content-evenly p-3">
-                  <input
-                    type="number"
-                    name="productQuant"
-                    id="productQuant"
-                    min={0}
-                    className="border border-0 text-center"
-                    style={{ width: '30%' }}
-                  />
+                  <InputWrapper>
+                    <div
+                      className="btn plusminus"
+                      onClick={() => {
+                        if (value === 0) {
+                          setValue(0);
+                        } else {
+                          setValue(value - 1);
+                        }
+                      }}
+                    >
+                      -
+                    </div>
+                    <div className="d-flex" style={{ width: '30%' }}>
+                      <input
+                        type="number"
+                        className="border border-0 w-100"
+                        value={value}
+                        min="0"
+                        style={{
+                          fontSize: '30px',
+                          width: '100%',
+                          background: 'none',
+                        }}
+                      />
+                    </div>
+                    <div
+                      className="btn plusminus"
+                      onClick={() => {
+                        setValue(value + 1);
+                      }}
+                    >
+                      +
+                    </div>
+                  </InputWrapper>
                   <button
                     type="submit"
                     className="btn w-50"
