@@ -9,6 +9,7 @@ export default function Routes() {
   return (
     <Switch>
       <MyRoute exact path="/" component={Login} />
+      <MyRoute exact path="/shopping-cart" component={ShoppingCart} />
       <MyRoute path="*" component={Page404} />
     </Switch>
   );
