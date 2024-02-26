@@ -1,9 +1,9 @@
 import React from 'react';
-export default function Estoque() {
-  const estoque = 14;
+export default function Stock() {
+  const stock = 14;
   let options = [];
 
-  for (let i = 1; i <= estoque; i++) {
+  for (let i = 1; i <= stock; i++) {
     options.push(
       <option key={i} value={i}>
         {i}

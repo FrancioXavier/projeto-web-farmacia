@@ -1,5 +1,5 @@
 import React from 'react';
-import Estoque from './estoque';
+import Stock from './stock';
 import { FaTrashAlt, FaWindowClose } from 'react-icons/fa';
 import { InformationLight } from '../../config/colors';
 import PropTypes from 'prop-types';
@@ -37,7 +37,7 @@ export default function Order(props) {
                   name="numbers"
                   id="num"
                 >
-                  <Estoque />
+                  <Stock />
                 </select>
               </form>
               <div>
