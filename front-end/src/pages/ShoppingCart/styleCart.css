@@ -1,0 +1,37 @@
+.title-product{
+  margin: 60px;
+}
+.title-icon, .text-icon
+{
+  padding-left: 82px;
+  margin: 2em 0 4em 0 ;
+  align-items: center;
+}
+.title, .text{
+  margin: 8px 0 10px 10px;
+
+}
+.buttons{
+  margin-bottom: 100px;
+}
+
+
+@media screen and (min-width: 991px){
+ .title-product, .ivna{
+    display:block !important;
+
+  }
+}
+@media screen and (max-width: 991px){
+  .trash,
+  .total-price{
+    display: none;
+  }
+  .product-information{
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-name{
+    font-size: 24px;
+  }
+}
