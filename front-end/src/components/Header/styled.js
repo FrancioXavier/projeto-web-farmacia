@@ -37,6 +37,7 @@ export const Nav = styled.nav`
       right: 0;
       margin-bottom: 3rem;
       margin-right: 3rem;
+      z-index: 99999;
     }
   }
 
