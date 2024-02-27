@@ -38,14 +38,12 @@ export default function ShoppingCart() {
           <h2 className="title">Carrinho de Compras</h2>
         </div>
         <div className=" d-flex px-4 m-2 justify-content-center ">
-          <h4 className=" d-none d-md-block d-flex col-5 ">Produto</h4>
-          <h4 className=" d-none d-md-block d-flex col-2 justify-content-center ">
-            Quantidade
-          </h4>
-          <h4 className=" d-none d-md-block d-flex col-2 justify-content-start ">
+          <h4 className=" col-5 prodInfo">Produto</h4>
+          <h4 className=" col-2 justify-content-center prodInfo">Quantidade</h4>
+          <h4 className=" col-2 justify-content-start prodInfo">
             Valor Unitário
           </h4>
-          <h4 className=" d-none d-md-block d-flex col-2 justify-content-start   ">
+          <h4 className=" col-2 justify-content-start   prodInfo">
             Valor Total
           </h4>
         </div>
