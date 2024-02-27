@@ -19,6 +19,19 @@ export const MainContent = styled.div`
   background: ${SuccessLight};
   flex-direction: column;
 
+  .mainContentContainer {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+      .mainContentContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
   @media only screen and (max-width: 640px){
     flex-direction: row;
   }

@@ -16,13 +16,13 @@ export default function OrderComplete() {
           <h2
             className="fw-bolder"
             style={{
-              margin: '2rem 0 1rem 1rem',
+              padding: '2rem 1rem 1rem 1rem',
             }}
           >
             Pedido Finalizado
           </h2>
           <div
-            className="container d-flex"
+            className="container mainContentContainer"
             style={{
               justifyContent: 'space-around',
             }}
