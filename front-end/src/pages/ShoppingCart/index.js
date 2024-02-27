@@ -39,9 +39,7 @@ export default function ShoppingCart() {
         </div>
         <div className=" d-flex px-4 m-2 justify-content-center ">
           <h4 className=" col-5 prodInfo">Produto</h4>
-          <h4 className=" col-2 justify-content-center prodInfo">
-            Quantidade
-          </h4>
+          <h4 className=" col-2 justify-content-center prodInfo">Quantidade</h4>
           <h4 className=" col-2 justify-content-start prodInfo">
             Valor Unitário
           </h4>
