@@ -8,11 +8,12 @@ import Product from '../pages/Product';
 import ShoppingCart from '../pages/ShoppingCart';
 import MyRoute from './MyRoute';
 import OrderComplete from '../pages/OrderComplete';
+import Home from '../pages/Home';
 
 export default function Routes() {
   return (
     <Switch>
-      <MyRoute exact path="/" component={Login} />
+      <MyRoute exact path="/" component={Home} />
       <MyRoute exact path="/product" component={Product} />
       <MyRoute exact path="/shopping-cart" component={ShoppingCart} />
       <MyRoute exact path="/contact-register" component={ContactRegister} />
