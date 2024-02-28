@@ -32,11 +32,11 @@ export default function Header() {
             </span>
           </div>
           <div className="col d-flex flex-row justify-content-center align-items-center ">
-            <Link to="/shopping-cart" className="d-flex flex-row md-2">
+            <Link to="/login" className="d-flex flex-row md-2">
               <FaUserAlt className="m-1" size={24} />
               <p className="m-1">Entrar/Cadastrar</p>
             </Link>
-            <Link to="/adasd" className="d-flex flex-row">
+            <Link to="/shopping-cart" className="d-flex flex-row">
               <FaShoppingBasket className="m-1" size={24} />
               <p className="m-1">Carrinho</p>
             </Link>

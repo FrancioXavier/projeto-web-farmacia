@@ -1,0 +1,12 @@
+.prodInfo {
+  display: flex;
+}
+
+
+@media screen and (max-width: 991px){
+
+  .prodInfo {
+    display: none;
+  }
+
+}
