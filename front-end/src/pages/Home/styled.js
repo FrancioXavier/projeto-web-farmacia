@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const SliderContainer = styled.div`
-  height: 90vh;
+  height: fit-content;
   width: 100%;
 `;
