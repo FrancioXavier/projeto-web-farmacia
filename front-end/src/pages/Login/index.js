@@ -1,24 +1,50 @@
 import { FaUserCircle } from 'react-icons/fa';
 import { FaLock } from 'react-icons/fa';
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from '../../styles/GlobalStyles';
 import { InformationLight, primaryDark } from '../../config/colors';
 import { InputLogin } from './styled';
+import passwordValidation from '../../config/validation/passwordValidation';
+import { toast } from 'react-toastify';
+import isEmail from 'validator/lib/isEmail';
 
 export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let formErrors = false;
+
+    if (!passwordValidation(password)) {
+      formErrors = true;
+      toast.error('Senha inválida');
+    }
+    if (!isEmail(email)) {
+      formErrors = true;
+      toast.error('E-mail inválido');
+    }
+
+    if (formErrors) return;
+  }
   return (
     <Container style={{ background: InformationLight, borderRadius: '10px' }}>
-      <form className="justify-content-center align-items-center d-flex flex-column">
+      <form
+        className="justify-content-center align-items-center d-flex flex-column"
+        onSubmit={handleSubmit}
+      >
         <h3 className="mt-4 mb-4">Fazer Login</h3>
         <div className="mb-3 w-100 mt-3">
           <InputLogin>
             <FaUserCircle size={20} />
             <input
               type="email"
+              value={email}
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </InputLogin>
         </div>
@@ -27,8 +53,10 @@ export default function Login() {
             <FaLock size={20} />
             <input
               type="password"
+              value={password}
               className="form-control"
-              id="exampleInputPassword1"
+              id="userPassword"
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha"
             />
           </InputLogin>
