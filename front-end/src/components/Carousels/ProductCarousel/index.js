@@ -1,51 +1,49 @@
 import PropTypes from 'prop-types';
-import { Stack, Carousel } from 'react-bootstrap';
+import React from 'react';
+import { PrevButton, NextButton, usePrevNextButtons } from './CarouselButtons';
+import useEmblaCarousel from 'embla-carousel-react';
 import ProductCard from '../../ProductCard';
+import { CarouselContainer } from './styled';
 
 function CarouselProduct(props) {
-  let page1 = [];
-  let page2 = [];
-  let page3 = [];
-  props.products.map((product, index) => {
-    if ((index + 1) % 3 === 0) {
-      page1.push(product);
-    } else if ((index + 1) % 3 === 1) {
-      page2.push(product);
-    } else if ((index + 1) % 3 === 2) {
-      page3.push(product);
-    }
-  });
+  const { products, options } = props;
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
-  let pages = [page1, page2, page3];
-
-  console.log(pages);
-
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
   return (
-    <Carousel>
-      {pages.map((page, index) => (
-        <Carousel.Item style={{ height: 500 }} key={index}>
-          <Stack
-            direction="horizontal"
-            className="h-100 justify-content-center align-items-center"
-            gap={4}
-          >
-            {page.map((product, index) => (
+    <CarouselContainer>
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {products.map((product, index) => (
+            <div className="embla__slide" key={index}>
               <ProductCard
-                key={index}
-                productName={product.name}
                 productImg={product.img}
+                productName={product.name}
                 productPrice={product.price}
               />
-            ))}
-          </Stack>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="embla__controls">
+        <div className="embla__buttons">
+          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+        </div>
+      </div>
+    </CarouselContainer>
   );
 }
 
 CarouselProduct.propTypes = {
   products: PropTypes.array.isRequired,
+  options: PropTypes.object.isRequired,
 };
 
 export default CarouselProduct;

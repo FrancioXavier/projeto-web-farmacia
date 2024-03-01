@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { Price } from './styled';
-import { InformationDark, InformationLight } from '../../config/colors';
+import { AddButton, Price } from './styled';
+import { InformationLight } from '../../config/colors';
 
 const ProductCard = (props) => {
   return (
@@ -8,8 +8,8 @@ const ProductCard = (props) => {
       <div
         className="card"
         style={{
-          width: '400px',
-          height: '400px',
+          width: '90%',
+          height: '90%',
           background: InformationLight,
           border: 'none',
         }}
@@ -23,44 +23,34 @@ const ProductCard = (props) => {
             justifyContent: 'center',
           }}
         >
-          <img
-            src={props.productImg}
-            className="card-img-top"
-            alt="..."
-            style={{
-              width: '90%',
-              height: '90%',
-            }}
-          />
+          <div className="col d-flex align-items-center justify-content-center flex-column">
+            <img
+              src={props.productImg}
+              className="card-img-top"
+              alt="..."
+              style={{
+                width: '90%',
+                height: '90%',
+              }}
+            />
+          </div>
         </div>
         <div
           className="card-body"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
             background: InformationLight,
+            maxWidth: '100%',
           }}
         >
-          <h5
-            className="card-title"
-            style={{ fontSize: '25px', fontWeight: 700 }}
-          >
-            {props.productName}
-          </h5>
-          <Price className="card-text">{props.productPrice}</Price>
-          <a
-            href="#"
-            className="btn btn-primary"
-            style={{
-              backgroundColor: InformationDark,
-              border: 'none',
-              padding: '15px 30px',
-            }}
-          >
-            ADICIONAR
-          </a>
+          <div className="d-flex align-items-center justify-content-center flex-column">
+            <h5 className="card-title fs-4 fw-bold text-center">
+              {props.productName}
+            </h5>
+            <Price className="card-text">{props.productPrice}</Price>
+            <AddButton href="#" className="btn btn-primary">
+              ADICIONAR
+            </AddButton>
+          </div>
         </div>
       </div>
     </>
