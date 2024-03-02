@@ -3,6 +3,10 @@ import { InformationLight } from '../../config/colors';
 import { Container } from '../../styles/GlobalStyles';
 
 import './ContactRegister.css';
+import cpfValidation from '../../config/validation/cpfValidation';
+import { toast } from 'react-toastify';
+import passwordValidation from '../../config/validation/passwordValidation';
+import { isEmail } from 'validator';
 
 export default function ContactRegister() {
   const [name, setName] = useState('');
@@ -13,11 +17,41 @@ export default function ContactRegister() {
   const [emailConfirmation, setEmailConfirmation] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let formErros = false;
+
+    if (email !== emailConfirmation) {
+      formErros = true;
+      toast.error('E-mails diferentes foram registrados');
+    }
+
+    if (password !== passwordConfirmation) {
+      formErros = true;
+      toast.error('Senhas diferentes foram registradas');
+    }
+    if (!cpfValidation(cpf)) {
+      formErros = true;
+      toast.error('CPF inválido');
+    }
+
+    if (!isEmail(email)) {
+      formErros = true;
+      toast.error('E-mail inválido');
+    }
+    if (!passwordValidation(password)) {
+      formErros = true;
+      toast.error('Senha inválida');
+    }
+
+    if (formErros) return;
+  }
   return (
     <Container
       style={{ background: InformationLight, maxWidth: 'none', width: '90%' }}
     >
-      <form className="row g-3">
+      <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-12">
           <label htmlFor="" className="title">
             Cadastro
