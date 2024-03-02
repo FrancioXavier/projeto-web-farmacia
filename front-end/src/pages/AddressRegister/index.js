@@ -4,6 +4,7 @@ import { Container } from '../../styles/GlobalStyles';
 
 import { states } from '../../config/states';
 import './AddressRegister.css';
+import { toast } from 'react-toastify';
 
 export default function AddressRegister() {
   const [zip, setZip] = useState('');
@@ -17,10 +18,21 @@ export default function AddressRegister() {
 
   function handlePressTerms() {
     const result = termConditions ? false : true;
-    console.log(result);
     setTermConditions(result);
+    console.log(result);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    let formErrors = false;
+    if (!termConditions) {
+      formErrors = true;
+      toast.error('Você deve concordar antes de finalizar o cadastro.');
+    }
+
+    if (formErrors) return;
+  }
   return (
     <Container
       style={{ background: InformationLight, maxWidth: 'none', width: '90%' }}
@@ -29,6 +41,7 @@ export default function AddressRegister() {
         id="addressRegister"
         className="row g-3 needs-validation"
         noValidate
+        onSubmit={handleSubmit}
       >
         <div className="col-md-12">
           <h1 className="title_form">Cadastro</h1>
