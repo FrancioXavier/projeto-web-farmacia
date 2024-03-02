@@ -12,8 +12,14 @@ export default function AddressRegister() {
   const [address2, setAddress2] = useState('');
   const [number, setNumber] = useState('');
   const [complement, setComplement] = useState('');
-  const [termConditions, setTermConditions] = useState();
   const [state, setState] = useState('');
+  const [termConditions, setTermConditions] = useState(false);
+
+  function handlePressTerms() {
+    const result = termConditions ? false : true;
+    console.log(result);
+    setTermConditions(result);
+  }
 
   return (
     <Container
@@ -158,8 +164,7 @@ export default function AddressRegister() {
             <input
               className="form-check-input"
               type="checkbox"
-              value={termConditions}
-              onChange={(event) => setTermConditions(event.target.value)}
+              onChange={handlePressTerms}
               id="invalidCheck"
               required
             />
