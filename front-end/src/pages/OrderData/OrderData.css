@@ -7,3 +7,7 @@
   font-size: 35px;
   margin: 0px;
 }
+
+.registered_delivery {
+  display: none;
+}
