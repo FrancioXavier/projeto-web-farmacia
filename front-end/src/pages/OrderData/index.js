@@ -5,6 +5,26 @@ import { Container } from '../../styles/GlobalStyles';
 import { states } from '../../config/states';
 import './OrderData.css';
 
+function addAddress() {
+  const showAddress = document.querySelector('#show_address');
+  const addAddress = document.querySelector('#add_address');
+
+  addAddress.classList.remove('present_address');
+  addAddress.classList.add('row');
+  showAddress.classList.remove('row');
+  showAddress.classList.add('present_address');
+}
+
+function showAddress() {
+  const showAddress = document.querySelector('#show_address');
+  const addAddress = document.querySelector('#add_address');
+
+  addAddress.classList.add('present_address');
+  addAddress.classList.remove('row');
+  showAddress.classList.add('row');
+  showAddress.classList.remove('present_address');
+}
+
 export default function ContactRegister() {
   const [zip, setZip] = useState('CEP');
   const [city, setCity] = useState('Cidade');
@@ -23,7 +43,8 @@ export default function ContactRegister() {
     <Container
       style={{ background: InformationLight, maxWidth: 'none', width: '90%' }}
     >
-      <div className="accordion" id="accordionExample">
+      <div className="accordion container" id="accordionExample">
+        <h1>Dados do Pedido</h1>
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -66,7 +87,7 @@ export default function ContactRegister() {
             className="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
           >
-            <div className="row accordion-body">
+            <div className="row accordion-body" id="show_address">
               <h6 className="col-12 col-sm-8">{address1}</h6>
               <h6 className="col-12 col-sm-4">{number}</h6>
               <h6 className="col-12 col-sm-6">{address2}</h6>
@@ -75,12 +96,16 @@ export default function ContactRegister() {
               <h6 className="col-12 col-sm-4">{state}</h6>
               <h6 className="col-12 col-sm-4">{zip}</h6>
               <div className="col-12 d-flex align-items-end justify-content-end">
-                <button type="button" className="btn text-right">
+                <button
+                  type="button"
+                  className="btn text-right"
+                  onClick={addAddress}
+                >
                   Alterar
                 </button>
               </div>
             </div>
-            <div className="registered_delivery accordion-body">
+            <div className="present_address accordion-body" id="add_address">
               <h5>Adicione um Novo endereço</h5>
               <div className="col-md-4">
                 <label htmlFor="validationCustom05" className="form-label">
@@ -213,6 +238,7 @@ export default function ContactRegister() {
                   style={{ backgroundColor: primaryDark, color: highPure }}
                   type="button"
                   className="btn"
+                  onClick={showAddress}
                 >
                   Adicionar
                 </button>
