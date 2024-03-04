@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaUserAlt, FaShoppingBasket, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { IoMenu } from 'react-icons/io5';
 
 import { Nav } from './styled';
+import NavButton from '../NavButton';
 
 export default function Header() {
   return (
@@ -47,7 +47,7 @@ export default function Header() {
         </div>
 
         <div className="categoriesButton">
-          <IoMenu size={40} />
+          <NavButton />
         </div>
       </Nav>
     </>

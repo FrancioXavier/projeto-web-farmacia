@@ -27,11 +27,7 @@ export const Nav = styled.nav`
     }
 
     .categoriesButton {
-      color: #fff;
       display: flex;
-      padding: 10px;
-      background-color: ${primaryDark};
-      border-radius: 50%;
       position: fixed;
       bottom: 0;
       right: 0;
