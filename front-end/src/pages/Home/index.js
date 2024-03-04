@@ -5,6 +5,7 @@ import DepartmentCard from '../../components/DepartmentCard';
 // import ProductCard from '../../components/ProductCard';
 import dorflex from '../../config/img/dorflex.png';
 import CarouselProduct from '../../components/Carousels/ProductCarousel';
+import { toast } from 'react-toastify';
 
 const OPTIONS = { dragFree: true };
 const products = [
@@ -22,10 +23,17 @@ const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },
 ];
 
+function handleLoad() {
+  //validacao de login.
+  setTimeout(() => {
+    toast.info('Nao tem uma conta? Crie agora!');
+  }, 60000);
+}
+
 export default function Home() {
   return (
     <>
-      <HomeContent className="container">
+      <HomeContent className="container" onLoad={handleLoad()}>
         <SliderContainer>
           <CarouselHome />
         </SliderContainer>
