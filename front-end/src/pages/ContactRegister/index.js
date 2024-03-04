@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { InformationLight } from '../../config/colors';
 import { Container } from '../../styles/GlobalStyles';
 
-import './ContactRegister.css';
-import cpfValidation from '../../config/validation/cpfValidation';
 import { toast } from 'react-toastify';
-import passwordValidation from '../../config/validation/passwordValidation';
 import { isEmail } from 'validator';
+import cpfValidation from '../../config/validation/cpfValidation';
+import passwordValidation from '../../config/validation/passwordValidation';
+import './ContactRegister.css';
 
 export default function ContactRegister() {
   const [name, setName] = useState('');
@@ -63,6 +63,7 @@ export default function ContactRegister() {
               Nome Completo
             </label>
             <input
+              autoFocus
               type="text"
               className="form-control"
               id="validationDefault01"
