@@ -9,7 +9,6 @@ import Page404 from '../pages/Page404';
 import Product from '../pages/Product';
 import ShoppingCart from '../pages/ShoppingCart';
 import MyRoute from './MyRoute';
-import OrderComplete from '../pages/OrderComplete';
 import Home from '../pages/Home';
 import FinishingOrder from '../pages/FinishingOrder';
 
