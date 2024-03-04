@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import store, { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Routes />
           <GlobalStyles />
           <ToastContainer autoClose={3000} className="toast-container" />
+          <Footer />
         </Router>
       </PersistGate>
     </Provider>

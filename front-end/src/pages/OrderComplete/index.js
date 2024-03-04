@@ -1,3 +1,4 @@
+import OrderInfo from '../../components/OrderInfo';
 import { primaryDark } from '../../config/colors';
 import { MainContent, OrderInfos } from './styled';
 
@@ -9,6 +10,7 @@ export default function OrderComplete() {
         style={{
           background: 'none',
           width: '80%',
+          height: '100vh',
         }}
       >
         <h1>Pedido Finalizado com Sucesso</h1>
@@ -27,17 +29,11 @@ export default function OrderComplete() {
               justifyContent: 'space-around',
             }}
           >
-            <OrderInfos>
-              <h4 className="fw-bolder textOrder">Endereço de entrega</h4>
-              <p className="textOrder">
-                George Washington Rua Dom Pedro Segundo, nº 287 Bairro Vila
-                Sésamo, 63220-122 Juazeiro do Norte - Ceará
-              </p>
-              <h4 className="fw-bolder textOrder">Dados de pagamento</h4>
-              <p className="textOrder">
-                Visa, **** **** **** 5612, 01/28 Parcelas: 2 x R$ 38,85
-              </p>
-            </OrderInfos>
+            <OrderInfo
+              adress="George Washington Rua Dom Pedro Segundo, nº 287 Bairro Vila Sésamo,
+          63220-122 Juazeiro do Norte - Ceará"
+              payment="Visa, **** **** **** 5612, 01/28 Parcelas: 2 x R$ 38,85 "
+            />
             <OrderInfos
               style={{
                 textAlign: 'center',

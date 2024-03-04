@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaUserAlt, FaShoppingBasket, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { IoMenu } from 'react-icons/io5';
 
 import { Nav } from './styled';
+import NavButton from '../NavButton';
 
 export default function Header() {
   return (
@@ -11,8 +11,11 @@ export default function Header() {
       <Nav className="">
         <div className="row align-items-center w-100">
           <div className="col pharTitle">
-            <h2 className="d-flex text-center justify-content-center">
-              University Pharmacy
+            <h2
+              className="d-flex text-center justify-content-center"
+              style={{ color: 'white' }}
+            >
+              <a href="/"> University Pharmacy</a>
             </h2>
           </div>
           <div className="col-3 input-group rounded searchInput">
@@ -44,7 +47,7 @@ export default function Header() {
         </div>
 
         <div className="categoriesButton">
-          <IoMenu size={40} />
+          <NavButton />
         </div>
       </Nav>
     </>
