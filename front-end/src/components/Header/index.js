@@ -11,8 +11,11 @@ export default function Header() {
       <Nav className="">
         <div className="row align-items-center w-100">
           <div className="col pharTitle">
-            <h2 className="d-flex text-center justify-content-center">
-              University Pharmacy
+            <h2
+              className="d-flex text-center justify-content-center"
+              style={{ color: 'white' }}
+            >
+              <a href="/"> University Pharmacy</a>
             </h2>
           </div>
           <div className="col-3 input-group rounded searchInput">

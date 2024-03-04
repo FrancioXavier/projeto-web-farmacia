@@ -1,0 +1,39 @@
+.social-medias, .rights-reserved,  .copyright {
+  justify-content: end;
+}
+.copyright{
+  margin-bottom: 0 !important;
+  font-size: 15px;
+}
+@media screen and (max-width: 1040px){
+.footer{
+
+  flex-direction: column;
+}
+.content-footer{
+  display: flex;
+  justify-content: center !important;
+}
+.social-medias, .copyright, .consumer-protection, .logo{
+  width: 100% !important;
+}
+.social-medias{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.copyright{
+
+  margin-top: 2em;
+}
+}
+
+.footerContainer {
+  display: flex;
+  width: 100%;
+  height: 321px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
