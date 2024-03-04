@@ -17,6 +17,33 @@ export default function ContactRegister() {
   const [emailConfirmation, setEmailConfirmation] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [digitValidation, setDigitValidation] = useState('red');
+  const [characterValidation, setCharacterValidation] = useState('red');
+  const [numberValidation, setNumberValidation] = useState('red');
+  const [uppercaseValidation, setUppercaseValidation] = useState('red');
+
+  function parametersValidation(e) {
+    if (e.match(/^.{8,15}$/)) {
+      setDigitValidation('#4ED34E');
+    } else {
+      setDigitValidation('red');
+    }
+    if (e.match(/^(?=.*[^a-zA-Z0-9])/)) {
+      setCharacterValidation('#4ED34E');
+    } else {
+      setCharacterValidation('red');
+    }
+    if (e.match(/^(?=.*\d)/)) {
+      setNumberValidation('#4ED34E');
+    } else {
+      setNumberValidation('red');
+    }
+    if (e.match(/^(?=.*[A-Z])/)) {
+      setUppercaseValidation('#4ED34E');
+    } else {
+      setUppercaseValidation('red');
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -153,7 +180,10 @@ export default function ContactRegister() {
               id="validationDefault01"
               placeholder="Digite uma senha"
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => {
+                setPassword(event.target.value),
+                  parametersValidation(event.target.value);
+              }}
               required
             />
           </div>
@@ -170,6 +200,14 @@ export default function ContactRegister() {
               onChange={(event) => setPasswordConfirmation(event.target.value)}
               required
             />
+          </div>
+          <div className="d-flex justify-content-start w-100 align-items-center">
+            <ul style={{ fontSize: '13px' }}>
+              <li style={{ color: digitValidation }}>8 a 15 digitos</li>
+              <li style={{ color: characterValidation }}>Caractere especial</li>
+              <li style={{ color: numberValidation }}>Numero qualquer</li>
+              <li style={{ color: uppercaseValidation }}>Letra maiuscula</li>
+            </ul>
           </div>
           <div className="col-12">
             <button className="btn btn-primary" type="submit">
