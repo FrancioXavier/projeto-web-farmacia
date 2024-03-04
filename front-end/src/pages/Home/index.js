@@ -43,19 +43,19 @@ export default function Home() {
             <h2>Departamentos</h2>
           </div>
           <div className="row justify-content-between fs-3 text-center">
-            <div className="col-sm-3">
+            <div className="col-sm-3 d-flex justify-content-center">
               <DepartmentCard
                 departmentName="Nome do departamento"
                 imageSrc={dorflex}
               />
             </div>
-            <div className="col-sm-3">
+            <div className="col-sm-3 d-flex justify-content-center">
               <DepartmentCard
                 departmentName="Nome do departamento"
                 imageSrc={dorflex}
               />
             </div>
-            <div className="col-sm-3">
+            <div className="col-sm-3 d-flex justify-content-center">
               <DepartmentCard
                 departmentName="Nome do departamento"
                 imageSrc={dorflex}
