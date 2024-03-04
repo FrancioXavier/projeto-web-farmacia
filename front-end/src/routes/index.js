@@ -10,7 +10,6 @@ import Product from '../pages/Product';
 import ShoppingCart from '../pages/ShoppingCart';
 import MyRoute from './MyRoute';
 import FinishingOrder from '../pages/FinishingOrder';
-import Footer from '../components/Footer';
 
 export default function Routes() {
   return (
@@ -23,7 +22,6 @@ export default function Routes() {
       <MyRoute exact path="/login" component={Login} />
       <MyRoute exact path="/order-complete" component={OrderComplete} />
       <MyRoute exact path="/finishing-order" component={FinishingOrder} />
-      <MyRoute exact path="/footer" component={Footer} />
       <MyRoute path="*" component={Page404} />
     </Switch>
   );

@@ -5,15 +5,15 @@ import './style.css';
 
 export default function Footer() {
   return (
-    <footer className="position-absolute w-100 bottom-0 start-0">
-      <section>
+    <footer className="card-footer">
+      <section className="container-fluid d-flex flex-column">
         <div
           style={{ background: '#1161BC', color: '#fff' }}
-          className="d-flex row justify-content-around align-items-center p-4 footer"
+          className="d-flex row justify-content-around align-items-center py-4 footer"
         >
           <div className="col-8 d-flex align-items-center content-footer logo">
             <img src={LogoUni} alt="" />
-            <h4 className="m-2 d-flex content-footer">University Pharmacy</h4>
+            <h4 className="my-2 d-flex content-footer">University Pharmacy</h4>
           </div>
           <div className="col-2 d-flex column content-footer social-medias ">
             <a href="">
@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
         <div
           style={{ background: primaryDark, color: '#fff' }}
-          className="d-flex justify-content-around align-items-center p-4 footer"
+          className="row d-flex justify-content-around align-items-center p-4 footer"
         >
           <p className="col-2 d-flex justify-content-center consumer-protection content-footer">
             Politica do consumidor
