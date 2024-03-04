@@ -4,8 +4,13 @@
 .title-icon, .text-icon
 {
   padding-left: 82px;
-  margin: 2em 0 4em 0 ;
   align-items: center;
+}
+.title-icon{
+  margin: 6em 0 3em 0 ;
+}
+.text-icon{
+  margin: 2em 0 6em 0 ;
 }
 .title, .text{
   margin: 8px 0 10px 10px;
@@ -17,6 +22,9 @@
 
 .prodInfo {
   display: flex;
+}
+.buttons button{
+  margin-bottom: 2rem;
 }
 
 
@@ -41,5 +49,16 @@
   }
   .product-name{
     font-size: 24px;
+  }
+  .title-icon, .text-icon{
+
+    padding-left: 24px !important;
+  }
+  .title{
+    width: 100%;
+    font-size: 26px;
+  }
+  .text{
+    font-size: 16px;
   }
 }
