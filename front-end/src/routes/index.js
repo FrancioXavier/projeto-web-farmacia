@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
+import AddressRegister from '../pages/AddressRegister';
 import ContactRegister from '../pages/ContactRegister';
 import FinishingOrder from '../pages/FinishingOrder';
 import Login from '../pages/Login';
@@ -19,6 +20,7 @@ export default function Routes() {
       <MyRoute exact path="/shopping-cart" component={ShoppingCart} />
       <MyRoute exact path="/contact-register" component={ContactRegister} />
       <MyRoute exact path="/your-orders" component={YourOrders} />
+      <MyRoute exact path="/address-register" component={AddressRegister} />
       <MyRoute exact path="/login" component={Login} />
       <MyRoute exact path="/order-complete" component={OrderComplete} />
       <MyRoute exact path="/finishing-order" component={FinishingOrder} />
