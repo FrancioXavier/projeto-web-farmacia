@@ -10,6 +10,7 @@ export default function OrderComplete() {
         style={{
           background: 'none',
           width: '80%',
+          height: '100vh',
         }}
       >
         <h1>Pedido Finalizado com Sucesso</h1>
