@@ -76,6 +76,13 @@ Branch para desenvolvimento, serão diversas branchs (uma para cada nova funcion
 feature/nova-funcionalidade
 ```
 
+### BugFix
+Criada a partir da develop, deverá ser criada ao ser identificado um bug no projeto, deverá ser criada da seguinte maneira:
+
+```
+bugfix/novo-bug
+```
+
 # Back-end
 
 Após clonar o repositório siga as seguintes instruções:
@@ -91,14 +98,4 @@ Após isso, instale as dependências e inicie o projeto:
 ```
 npm install
 npm run dev
-```
-
-
-
-
-### BugFix
-Criada a partir da develop, deverá ser criada ao ser identificado um bug no projeto, deverá ser criada da seguinte maneira:
-
-```
-bugfix/novo-bug
 ```
