@@ -76,6 +76,26 @@ Branch para desenvolvimento, serão diversas branchs (uma para cada nova funcion
 feature/nova-funcionalidade
 ```
 
+# Back-end
+
+Após clonar o repositório siga as seguintes instruções:
+```cmd
+copy .env_example .env
+```
+Copie o arquivo de exemplo do env, dentro desse arquivo adicione a porta e a URL do banco de dados no lugar de YOUR_PORT e URL_DATABASE, respectivamente:
+```
+PORT= YOUR_PORT
+MONGO_URL= URL_DATABASE
+```
+Após isso, instale as dependências e inicie o projeto:
+```
+npm install
+npm run dev
+```
+
+
+
+
 ### BugFix
 Criada a partir da develop, deverá ser criada ao ser identificado um bug no projeto, deverá ser criada da seguinte maneira:
 
