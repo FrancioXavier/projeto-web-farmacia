@@ -9,8 +9,8 @@ router.get('/:id', categoryController.getCategoryById);
 
 router.post('/', categoryController.newCategory);
 
-router.put('/', categoryController.updateCategory);
+router.put('/:id', categoryController.updateCategory);
 
-router.delete('/', categoryController.deleteCategory);
+router.delete('/:id', categoryController.deleteCategory);
 
 export default router;
