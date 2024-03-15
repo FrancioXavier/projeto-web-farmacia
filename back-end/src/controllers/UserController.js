@@ -14,13 +14,18 @@ class UserController {
   }
 
   async newUser(req, res) {
-    const user = new User({
-      userName: 'francio',
-      email: 'teste@teste.com',
-      password: 'senha',
-    });
-    user.save().then(console.log('funcionou'));
-    res.json(user);
+    try {
+      const user = new User({
+        userName: 'francio',
+        email: 'teste@teste.com',
+        password: 'senha',
+      });
+
+      await user.save();
+      return res.json(user);
+    } catch (e) {
+      return res.send(e);
+    }
   }
 
   async deleteUser(req, res) {

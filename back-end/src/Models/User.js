@@ -13,7 +13,7 @@ const userSchema = new Schema({
     validate: {
       validator: async function (email) {
         const user = await this.constructor.findOne({ email });
-        return !user; // Retorna true se não encontrar nenhum usuário com o mesmo email
+        return !user;
       },
       message: 'Email já existe',
     },
@@ -21,6 +21,37 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  phoneNumber1: {
+    type: String,
+    required: true,
+  },
+  phoneNumber2: {
+    type: String,
+  },
+  cpf: {
+    type: String,
+    required: true,
+    min: 10000000000,
+  },
+  addressCep: {
+    type: Number,
+    min: 10000000,
+  },
+  addressState: {
+    type: String,
+  },
+  addressCity: {
+    type: String,
+  },
+  addressNeighborhood: {
+    type: String,
+  },
+  addressComplement: {
+    type: String,
+  },
+  addressPublicPlace: {
+    type: String,
   },
 });
 
