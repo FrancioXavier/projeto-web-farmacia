@@ -23,11 +23,11 @@ const userSchema = new Schema({
     required: true,
   },
   phoneNumber1: {
-    type: String,
+    type: Number,
     required: true,
   },
   phoneNumber2: {
-    type: String,
+    type: Number,
   },
   cpf: {
     type: String,

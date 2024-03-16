@@ -16,9 +16,11 @@ class UserController {
   async newUser(req, res) {
     try {
       const user = new User({
-        userName: 'francio',
-        email: 'teste@teste.com',
-        password: 'senha',
+        userName: req.body.userName,
+        email: req.body.email,
+        password: req.body.password,
+        phoneNumber1: req.body.phoneNumber1,
+        cpf: req.body.cpf,
       });
 
       await user.save();
