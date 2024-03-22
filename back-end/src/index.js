@@ -1,11 +1,15 @@
-import 'dotenv/config';
 import cors from 'cors';
-import helmet from 'helmet';
+import 'dotenv/config';
 import express from 'express';
+import helmet from 'helmet';
 import { resolve } from 'path';
 import orderRoutes from '.routes/orderRouts';
 
 import homeRoutes from './routes/homeRoutes';
+import userRoutes from './routes/userRoutes';
+import tokenRoutes from './routes/tokenRoutes';
+import catergoryRoutes from './routes/categoryRoute';
+import productRoutes from './routes/productRoutes';
 
 const whiteList = [`http://localhost:${process.env.PORT}`];
 
@@ -39,6 +43,10 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
+    this.app.use('/users', userRoutes);
+    this.app.use('/tokens', tokenRoutes);
+    this.app.use('/category', catergoryRoutes);
+    this.app.use('/product', productRoutes);
     this.app.use('/orders', orderRoutes);
   }
 }
