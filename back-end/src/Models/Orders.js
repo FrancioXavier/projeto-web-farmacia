@@ -7,27 +7,26 @@ const orderSchema = new Schema({
     required: true,
   },
   fkUser: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  receipt: {
-    data: Buffer,
-    contentType: String,
+  invoiceNumber: {
+    type: Number,
     required: true,
   },
-  fkProduct: [
-    {
-      product: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-    },
-  ],
+  // fkProduct: [
+  //   {
+  //     product: {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       ref: 'Product',
+  //     },
+  //     quantity: {
+  //       type: Number,
+  //       required: true,
+  //     },
+  //   },
+  // ],
   // fkProduct: {
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: 'Product',
