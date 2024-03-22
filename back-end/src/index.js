@@ -5,6 +5,8 @@ import express from 'express';
 import { resolve } from 'path';
 
 import homeRoutes from './routes/homeRoutes';
+import userRoutes from './routes/userRoutes';
+import tokenRoutes from './routes/tokenRoutes';
 import catergoryRoutes from './routes/categoryRoute';
 
 const whiteList = [`http://localhost:${process.env.PORT}`];
@@ -39,6 +41,8 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
+    this.app.use('/users', userRoutes);
+    this.app.use('/tokens', tokenRoutes);
     this.app.use('/category', catergoryRoutes);
   }
 }
