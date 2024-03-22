@@ -1,16 +1,17 @@
 import { Router } from 'express';
 import orderController from '../controllers/OrderController';
+import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
-router.get('/', orderController.getOrders);
+router.get('/', loginRequired, orderController.getOrdersByUser);
 
-router.get('/:id', orderController.getOrderById);
+router.get('/:id', loginRequired, orderController.getOrderById);
 
-router.post('/', orderController.newOrder);
+router.post('/', loginRequired, orderController.newOrder);
 
-router.put('/', orderController.updateOrder);
+router.put('/', loginRequired, orderController.updateOrder);
 
-router.delete('/', orderController.deleteOrder);
+router.delete('/', loginRequired, orderController.deleteOrder);
 
 export default router;

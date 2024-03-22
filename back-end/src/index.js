@@ -3,7 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import helmet from 'helmet';
 import { resolve } from 'path';
-import orderRoutes from '.routes/orderRouts';
+import orderRoutes from './routes/orderRoutes';
 
 import homeRoutes from './routes/homeRoutes';
 import userRoutes from './routes/userRoutes';
