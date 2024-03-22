@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import express from 'express';
 import { resolve } from 'path';
+import orderRoutes from '.routes/orderRouts';
 
 import homeRoutes from './routes/homeRoutes';
 
@@ -38,6 +39,7 @@ class App {
 
   routes() {
     this.app.use('/', homeRoutes);
+    this.app.use('/orders', orderRoutes);
   }
 }
 
