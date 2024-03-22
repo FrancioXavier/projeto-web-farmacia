@@ -1,16 +1,28 @@
 import User from '../Models/User';
 
 class UserController {
-  async index(req, res) {
-    res.json('Index');
-  }
-
   async getUsers(req, res) {
-    res.json('getUsers');
+    try {
+      const users = await User.find();
+      res.status(200).send(users);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: 'Erro de requisicao' });
+    }
   }
 
   async getUserById(req, res) {
-    res.json('getUsers');
+    try {
+      const id = req.userId;
+      const user = await User.findById(id);
+
+      if (!user)
+        return res.status(404).json({ message: 'Usuario nao encontrado' });
+      res.status(200).send(user);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: 'Erro de requisicao' });
+    }
   }
 
   async newUser(req, res) {
@@ -24,14 +36,40 @@ class UserController {
       });
 
       await user.save();
-      return res.json(user);
+
+      if (!user)
+        return res.status(400).message({ message: 'erro ao criar usuario' });
+      res.json(user);
     } catch (e) {
-      return res.send(e);
+      res.status(500).json({ message: 'Erro de requisicao' });
     }
   }
 
   async deleteUser(req, res) {
-    res.json('deleteUser');
+    try {
+      const id = req.userId;
+      const userDelete = await User.findByIdAndDelete(id);
+
+      if (!userDelete)
+        return res.status(404).json({ message: 'Usuário não encontrado' });
+      res.status(200).json({ message: 'Usuario deletado com sucesso' });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: 'Erro de requisicao' });
+    }
+  }
+
+  async updateUser(req, res) {
+    try {
+      const id = req.userId;
+      const newUser = req.body;
+      const updatedUser = await User.findByIdAndUpdate(id, newUser, {
+        new: true,
+      });
+      if (!updatedUser)
+        return res.status(404).json({ message: 'Usuário não encontrado' });
+      res.status(200).json(updatedUser);
+    } catch (error) {}
   }
 }
 
