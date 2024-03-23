@@ -10,9 +10,9 @@ router.get('/:id', productController.getProductById);
 
 router.get('/:category', productController.getProductByCategory);
 
+//rotas de desenvolvimento
 router.put('/', productController.updateProduct);
 
-//rotas de desenvolvimento
 router.post('/', productController.newProduct);
 
 router.delete('/', productController.deleteProduct);
