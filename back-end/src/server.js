@@ -1,9 +1,9 @@
-import { dbConnect } from '../config/db';
+import { db } from '../config/db';
 import app from './index';
 
 const port = process.env.PORT;
 
-dbConnect();
+db();
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
