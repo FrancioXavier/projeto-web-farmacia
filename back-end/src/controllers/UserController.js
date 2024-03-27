@@ -27,12 +27,31 @@ class UserController {
 
   async newUser(req, res) {
     try {
+      const {
+        userName = null,
+        email = null,
+        password = null,
+        phoneNumber1 = null,
+        phoneNumber2 = null,
+        cpf = null,
+      } = req.body;
+
+      if (
+        !userName ||
+        !email ||
+        !password ||
+        !phoneNumber1 ||
+        !phoneNumber2 ||
+        !cpf
+      )
+        return res.status(401).json({ error: 'Campos não adicionados' });
+
       const user = new User({
-        userName: req.body.userName,
-        email: req.body.email,
-        password: req.body.password,
-        phoneNumber1: req.body.phoneNumber1,
-        cpf: req.body.cpf,
+        userName: userName,
+        email: email,
+        password: password,
+        phoneNumber1: phoneNumber1,
+        cpf: cpf,
       });
 
       await user.save();
