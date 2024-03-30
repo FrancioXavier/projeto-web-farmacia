@@ -3,10 +3,11 @@ import User from '../Models/User';
 
 class TokenController {
   async store(req, res) {
-    const { email = '', password = '' } = req.body;
-
     try {
+      const { email, password } = req.body;
+      console.log(email);
       if (!email || !password) {
+        console.log(email, password);
         return res.status(401).json({
           errors: ['Credenciais inválidas'],
         });

@@ -10,7 +10,7 @@ import tokenRoutes from './routes/tokenRoutes';
 import catergoryRoutes from './routes/categoryRoute';
 import productRoutes from './routes/productRoutes';
 
-const whiteList = [`http://localhost:${process.env.PORT}`];
+const whiteList = [`http://localhost:3000`];
 
 const corsOptions = {
   origin: function (origin, callback) {
