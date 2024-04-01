@@ -5,7 +5,7 @@ class TokenController {
   async store(req, res) {
     try {
       const { email, password } = req.body;
-      console.log(email);
+      console.log(email, password);
       if (!email || !password) {
         console.log(email, password);
         return res.status(401).json({
@@ -14,6 +14,8 @@ class TokenController {
       }
 
       const user = await User.findOne({ email: email });
+
+      console.log(user);
 
       if (!user) {
         return res.status(401).json({
@@ -26,13 +28,40 @@ class TokenController {
           errors: ['Senha inválida'],
         });
       }
-
-      const { id } = user;
+      console.log(user);
+      const {
+        id,
+        name,
+        telephone1,
+        telephone2,
+        cpf,
+        addressCep,
+        addressState,
+        addressCity,
+        addressNeighborhood,
+        addressComplement,
+      } = user;
       const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
         expiresIn: process.env.TOKEN_EXPIRATION,
       });
 
-      return res.json({ token, user: { nome: user.nome, id, email } });
+      return res.json({
+        token,
+        user: {
+          name,
+          id,
+          email,
+          telephone1,
+          telephone2,
+          cpf,
+          password,
+          addressCep,
+          addressState,
+          addressCity,
+          addressNeighborhood,
+          addressComplement,
+        },
+      });
     } catch (error) {
       console.log(error);
     }

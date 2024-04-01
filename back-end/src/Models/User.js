@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs';
 
 const userSchema = new Schema(
   {
-    userName: {
+    name: {
       type: String,
       required: true,
     },
@@ -23,11 +23,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    phoneNumber1: {
+    telephone1: {
       type: Number,
       required: true,
     },
-    phoneNumber2: {
+    telephone2: {
       type: Number,
     },
     cpf: {

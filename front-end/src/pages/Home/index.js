@@ -6,7 +6,6 @@ import DepartmentCard from '../../components/DepartmentCard';
 import dorflex from '../../config/img/dorflex.png';
 import CarouselProduct from '../../components/Carousels/ProductCarousel';
 import { toast } from 'react-toastify';
-
 const OPTIONS = { dragFree: true };
 const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },

@@ -14,7 +14,7 @@ export default function (state = initialState, action) {
     case types.LOGIN_SUCCESS: {
       const newState = { ...state };
       newState.isLoggedIn = true;
-      newState.token = action.payload.tokens;
+      newState.token = action.payload.token;
       newState.user = action.payload.user;
       return newState;
     }
@@ -26,6 +26,27 @@ export default function (state = initialState, action) {
     }
 
     case types.LOGIN_REQUEST: {
+      const newState = { ...state };
+      return newState;
+    }
+
+    case types.REGISTER_UPDATED_SUCCESS: {
+      const newState = { ...state };
+      newState.user = action.payload.user;
+      return newState;
+    }
+
+    case types.REGISTER_CREATED_SUCCESS: {
+      const newState = { ...state };
+      return newState;
+    }
+
+    case types.REGISTER_FAILURE: {
+      const newState = { ...state };
+      return newState;
+    }
+
+    case types.REGISTER_REQUEST: {
       const newState = { ...state };
       return newState;
     }
