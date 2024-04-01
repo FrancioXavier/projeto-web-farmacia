@@ -6,6 +6,7 @@ import DepartmentCard from '../../components/DepartmentCard';
 import dorflex from '../../config/img/dorflex.png';
 import CarouselProduct from '../../components/Carousels/ProductCarousel';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 const OPTIONS = { dragFree: true };
 const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },
@@ -30,6 +31,7 @@ function handleLoad() {
 }
 
 export default function Home() {
+  console.log(useSelector((state) => state.auth.user));
   return (
     <>
       <HomeContent className="container" onLoad={handleLoad()}>

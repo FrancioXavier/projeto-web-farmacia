@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 import { Nav } from './styled';
 import NavButton from '../NavButton';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+  const id = useSelector((state) => state.auth.user.id);
   return (
     <>
       <Nav className="">
@@ -35,10 +37,23 @@ export default function Header() {
             </span>
           </div>
           <div className="col d-flex flex-row justify-content-center align-items-center ">
-            <Link to="/login" className="d-flex flex-row md-2">
-              <FaUserAlt className="m-1" size={24} />
-              <p className="m-1">Entrar/Cadastrar</p>
-            </Link>
+            <div className="d-flex flex-row md-2" style={{ color: '#fff' }}>
+              {id ? (
+                <>
+                  <a href="/contact-register">
+                    <FaUserAlt className="m-1" size={24} />
+                  </a>
+                </>
+              ) : (
+                <>
+                  <FaUserAlt className="m-1" size={24} />
+                  <p className="m-1 d-flex">
+                    <a href="/login">entrar</a> <span>/</span>
+                    <a href="/contact-register">cadastrar</a>
+                  </p>
+                </>
+              )}
+            </div>
             <Link to="/shopping-cart" className="d-flex flex-row">
               <FaShoppingBasket className="m-1" size={24} />
               <p className="m-1">Carrinho</p>

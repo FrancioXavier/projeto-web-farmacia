@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
 
     case types.REGISTER_UPDATED_SUCCESS: {
       const newState = { ...state };
-      newState.user = action.payload.user;
+      newState.user = action.payload;
       return newState;
     }
 
