@@ -6,15 +6,44 @@ class CategoryController {
   }
 
   async getCategories(req, res) {
-    res.json('getCategories');
+    try {
+      const categories = await Category.find();
+      return res.status(200).json(categories);
+    } catch (error) {
+      return res
+        .status(401)
+        .json({ message: 'Não foi possível recuperar as categorias' });
+    }
   }
 
   async getCategoryById(req, res) {
-    res.son('getCategoryById');
+    try {
+      const id = req.params.id;
+      const categoriesById = await Category.findById(id);
+
+      return res.status(200).json(categoriesById);
+    } catch (error) {
+      return res
+        .status(401)
+        .json({ message: 'Não foi possível recuperar Categoria' });
+    }
   }
 
   async updateCategory(req, res) {
-    res.json('updateCategory');
+    try {
+      const categoryId = req.params.id;
+      const category = req.body.category;
+      const newCategory = await Category.findByIdAndUpdate(
+        categoryId,
+        category,
+      );
+
+      const { id, categoryName } = newCategory;
+
+      return res.status(200).json({ id, categoryName });
+    } catch (error) {
+      return res.status(500).json({ message: 'Erro no servidor' });
+    }
   }
 
   async newCategory(req, res) {
@@ -26,13 +55,23 @@ class CategoryController {
       await category.save();
       return res.json(category);
     } catch (error) {
-      console.log(error);
       return res.status(401).send('deu erro!');
     }
   }
 
   async deleteCategory(req, res) {
-    res.json('deleteCategory');
+    try {
+      const id = req.params.id;
+      const deleteUser = await Category.findByIdAndDelete(id);
+
+      if (!deleteUser) {
+        res.status(404).json({ message: 'Categoria não encontrado' });
+      }
+
+      return res
+        .status(200)
+        .json({ message: 'Categoria deletado com sucesso' });
+    } catch (err) {}
   }
 }
 
