@@ -23,15 +23,18 @@ const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },
 ];
 
-function handleLoad() {
-  //validacao de login.
-  setTimeout(() => {
-    toast.info('Nao tem uma conta? Crie agora!');
-  }, 60000);
-}
-
 export default function Home() {
   console.log(useSelector((state) => state.auth.user));
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  function handleLoad() {
+    if (!isLoggedIn) {
+      setTimeout(() => {
+        toast.info('Nao tem uma conta? Crie agora!');
+      }, 60000);
+    }
+  }
   return (
     <>
       <HomeContent className="container" onLoad={handleLoad()}>
