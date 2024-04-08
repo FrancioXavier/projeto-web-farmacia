@@ -15,6 +15,11 @@ const orderSchema = new Schema({
     type: Number,
     required: true,
   },
+  products: {
+    type: [mongoose.Types.ObjectId],
+    ref: 'Product',
+    required: true,
+  },
   // fkProduct: [
   //   {
   //     product: {
