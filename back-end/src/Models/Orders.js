@@ -6,7 +6,7 @@ const orderSchema = new Schema({
     type: Number,
     required: true,
   },
-  fkUser: {
+  userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,

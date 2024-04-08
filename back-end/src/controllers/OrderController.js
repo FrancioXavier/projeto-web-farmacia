@@ -40,8 +40,9 @@ class OrderController {
       const userId = req.userId;
       const order = new Order({
         totalPrice: req.body.totalPrice,
-        fkUser: userId,
+        userId: userId,
         invoiceNumber: req.body.invoiceNumber,
+        products: req.body.products,
       });
       await order.save();
       res.status(200).send({ mensage: 'Pedido realizado com sucesso' });

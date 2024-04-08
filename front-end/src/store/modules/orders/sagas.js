@@ -19,7 +19,7 @@ function* orderRequest({ payload }) {
       toast.error('error desconhecido');
     }
     //chama action de loginFailure
-    yield put(actions.loginFailure());
+    yield put(actions.orderFailure());
   }
 }
 

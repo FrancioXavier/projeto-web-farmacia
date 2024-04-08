@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: 'PROJETO-WEB',
       storage,
-      whitelist: ['auth'],
+      whitelist: ['auth', 'orders'],
     },
     reducers,
   );

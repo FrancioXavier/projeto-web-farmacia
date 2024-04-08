@@ -3,8 +3,22 @@
 import './styleCart.css';
 import { FaShoppingBasket, FaStore } from 'react-icons/fa';
 import AllOrdes from '../../components/AllOrders';
+import { useDispatch } from 'react-redux';
+import * as actions from '../../store/modules/orders/actions';
 
 export default function ShoppingCart() {
+  const dispatch = useDispatch();
+  function handleClick(e) {
+    e.preventDefault();
+    const products = ['6612ad1a9673c9f94b5f63d3'];
+    const invoiceNumber = 123123;
+    const userId = '660a40bf8a43ff3774d22143';
+    const totalPrice = 500;
+
+    dispatch(
+      actions.orderRequest({ products, invoiceNumber, userId, totalPrice }),
+    );
+  }
   return (
     <div className="container">
       <div className="title-icon d-flex">
@@ -29,7 +43,13 @@ export default function ShoppingCart() {
         >
           Continuar Comprando
         </button>
-        <button type="button" className="btn btn-primary btn-lg col-sm-5  ">
+        <button
+          type="button"
+          className="btn btn-primary btn-lg col-sm-5"
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
           Fechar Pedido
         </button>
       </div>
