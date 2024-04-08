@@ -6,6 +6,7 @@ import ContactRegister from '../pages/ContactRegister';
 import FinishingOrder from '../pages/FinishingOrder';
 import Login from '../pages/Login';
 import OrderComplete from '../pages/OrderComplete';
+import OrderData from '../pages/OrderData';
 import Page404 from '../pages/Page404';
 import Product from '../pages/Product';
 import ShoppingCart from '../pages/ShoppingCart';
@@ -20,6 +21,7 @@ export default function Routes() {
       <MyRoute exact path="/product" component={Product} />
       <MyRoute exact path="/shopping-cart" component={ShoppingCart} />
       <MyRoute exact path="/contact-register" component={ContactRegister} />
+      <MyRoute exact path="/order-data" component={OrderData} />
       <MyRoute exact path="/your-orders" component={YourOrders} />
       <MyRoute exact path="/address-register" component={AddressRegister} />
       <MyRoute exact path="/login" component={Login} isClosed={false} />
