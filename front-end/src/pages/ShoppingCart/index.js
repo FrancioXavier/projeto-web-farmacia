@@ -30,8 +30,8 @@ export default function ShoppingCart() {
         >
           Continuar Comprando
         </button>
-        <Link to="/">
-          <button type="button" className="btn btn-primary btn-lg col-sm-5  ">
+        <Link to="/order-data" className="col-sm-5 p-0  ">
+          <button type="button" className="btn btn-primary btn-lg w-100 ">
             Fechar Pedido
           </button>
         </Link>
