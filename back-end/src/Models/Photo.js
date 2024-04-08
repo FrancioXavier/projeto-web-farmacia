@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import appConfig from '../../config/appConfig';
 const photoSchema = new Schema({
-  orginalname: {
+  originalname: {
     type: String,
     required: true,
   },
