@@ -1,4 +1,5 @@
 import User from '../Models/User';
+import bcryptjs from 'bcryptjs';
 
 class UserController {
   async getUsers(req, res) {
@@ -26,13 +27,15 @@ class UserController {
   }
 
   async newUser(req, res) {
+    const { name, cpf, telephone1, telephone2, email, password } = req.body;
     try {
       const user = new User({
-        userName: req.body.userName,
-        email: req.body.email,
-        password: req.body.password,
-        phoneNumber1: req.body.phoneNumber1,
-        cpf: req.body.cpf,
+        name: name,
+        email: email,
+        password: password,
+        telephone1: telephone1,
+        cpf: cpf,
+        telephone2: telephone2,
       });
 
       await user.save();
@@ -41,6 +44,7 @@ class UserController {
         return res.status(400).message({ message: 'erro ao criar usuario' });
       res.json(user);
     } catch (e) {
+      console.log(e);
       res.status(500).json({ message: 'Erro de requisicao' });
     }
   }
@@ -62,14 +66,48 @@ class UserController {
   async updateUser(req, res) {
     try {
       const id = req.userId;
+      console.log(id);
       const newUser = req.body;
+      const stringPassword = newUser.password;
+
+      newUser.password = await bcryptjs.hash(stringPassword, 10);
       const updatedUser = await User.findByIdAndUpdate(id, newUser, {
         new: true,
       });
+
+      const {
+        name,
+        email,
+        telephone1,
+        telephone2,
+        cpf,
+        addressCep,
+        addressState,
+        addressCity,
+        addressNeighborhood,
+        addressComplement,
+      } = updatedUser;
+
       if (!updatedUser)
         return res.status(404).json({ message: 'Usuário não encontrado' });
-      res.status(200).json(updatedUser);
-    } catch (error) {}
+      res.status(200).json({
+        id,
+        name,
+        password: stringPassword,
+        email,
+        telephone1,
+        telephone2,
+        cpf,
+        addressCep,
+        addressState,
+        addressCity,
+        addressNeighborhood,
+        addressComplement,
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: 'Erro no servidor' });
+    }
   }
 }
 

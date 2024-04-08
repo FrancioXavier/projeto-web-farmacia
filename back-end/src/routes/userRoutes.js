@@ -5,7 +5,7 @@ import loginRequired from '../middlewares/loginRequired';
 const router = new Router();
 
 //Rotas para o front
-router.get('/', userController.getUsers);
+// router.get('/', userController.getUsers);
 
 router.get('/byid', loginRequired, userController.getUserById);
 

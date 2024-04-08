@@ -7,18 +7,25 @@ import { InputLogin } from './styled';
 import passwordValidation from '../../config/validation/passwordValidation';
 import { toast } from 'react-toastify';
 import isEmail from 'validator/lib/isEmail';
+import { useDispatch } from 'react-redux';
+import { get } from 'lodash';
+import * as actions from '../../store/modules/auth/actions';
 
-export default function Login() {
+export default function Login(props) {
+  const dispatch = useDispatch();
+
+  const prevPath = get(props, 'location.state.prevPath', '/');
+  const history = get(props, 'history');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let formErrors = false;
 
     if (!passwordValidation(password)) {
-      formErrors = true;
-      toast.error('Senha inválida');
+      formErrors = false;
+      // toast.error('Senha inválida');
     }
     if (!isEmail(email)) {
       formErrors = true;
@@ -26,7 +33,9 @@ export default function Login() {
     }
 
     if (formErrors) return;
-  }
+
+    dispatch(actions.loginRequest({ email, password, prevPath, history }));
+  };
   return (
     <div className="h-100">
       <Container style={{ background: InformationLight, borderRadius: '10px' }}>
@@ -42,7 +51,7 @@ export default function Login() {
                 type="email"
                 value={email}
                 className="form-control"
-                id="exampleInputEmail1"
+                id="email"
                 aria-describedby="emailHelp"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -56,7 +65,7 @@ export default function Login() {
                 type="password"
                 value={password}
                 className="form-control"
-                id="userPassword"
+                id="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}

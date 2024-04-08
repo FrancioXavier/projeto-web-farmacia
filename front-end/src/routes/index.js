@@ -16,13 +16,13 @@ import Home from '../pages/Home';
 export default function Routes() {
   return (
     <Switch>
-      <MyRoute exact path="/" component={Home} />
+      <MyRoute exact path="/" component={Home} isClosed={false} />
       <MyRoute exact path="/product" component={Product} />
       <MyRoute exact path="/shopping-cart" component={ShoppingCart} />
       <MyRoute exact path="/contact-register" component={ContactRegister} />
       <MyRoute exact path="/your-orders" component={YourOrders} />
       <MyRoute exact path="/address-register" component={AddressRegister} />
-      <MyRoute exact path="/login" component={Login} />
+      <MyRoute exact path="/login" component={Login} isClosed={false} />
       <MyRoute exact path="/order-complete" component={OrderComplete} />
       <MyRoute exact path="/finishing-order" component={FinishingOrder} />
       <MyRoute path="*" component={Page404} />

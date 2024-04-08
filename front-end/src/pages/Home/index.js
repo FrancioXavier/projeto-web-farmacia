@@ -6,7 +6,7 @@ import DepartmentCard from '../../components/DepartmentCard';
 import dorflex from '../../config/img/dorflex.png';
 import CarouselProduct from '../../components/Carousels/ProductCarousel';
 import { toast } from 'react-toastify';
-
+import { useSelector } from 'react-redux';
 const OPTIONS = { dragFree: true };
 const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },
@@ -23,14 +23,18 @@ const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },
 ];
 
-function handleLoad() {
-  //validacao de login.
-  setTimeout(() => {
-    toast.info('Nao tem uma conta? Crie agora!');
-  }, 60000);
-}
-
 export default function Home() {
+  console.log(useSelector((state) => state.auth.user));
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  function handleLoad() {
+    if (!isLoggedIn) {
+      setTimeout(() => {
+        toast.info('Nao tem uma conta? Crie agora!');
+      }, 60000);
+    }
+  }
   return (
     <>
       <HomeContent className="container" onLoad={handleLoad()}>
