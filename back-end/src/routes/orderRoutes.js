@@ -10,7 +10,7 @@ router.get('/:id', loginRequired, orderController.getOrderById);
 
 router.post('/', loginRequired, orderController.newOrder);
 
-router.put('/', loginRequired, orderController.updateOrder);
+router.put('/', loginRequired, orderController.finishOrder);
 
 router.delete('/', loginRequired, orderController.deleteOrder);
 

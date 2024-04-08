@@ -20,6 +20,10 @@ const orderSchema = new Schema({
     ref: 'Product',
     required: true,
   },
+  isOpen: {
+    type: Boolean,
+    required: true,
+  },
   // fkProduct: [
   //   {
   //     product: {

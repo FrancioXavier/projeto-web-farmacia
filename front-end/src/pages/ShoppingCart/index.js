@@ -5,18 +5,28 @@ import { FaShoppingBasket, FaStore } from 'react-icons/fa';
 import AllOrdes from '../../components/AllOrders';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/orders/actions';
+import { get } from 'lodash';
 
-export default function ShoppingCart() {
+export default function ShoppingCart(props) {
   const dispatch = useDispatch();
+  const history = get(props, 'history');
   function handleClick(e) {
     e.preventDefault();
     const products = ['6612ad1a9673c9f94b5f63d3'];
     const invoiceNumber = 123123;
     const userId = '660a40bf8a43ff3774d22143';
     const totalPrice = 500;
+    const isOpen = true;
 
     dispatch(
-      actions.orderRequest({ products, invoiceNumber, userId, totalPrice }),
+      actions.orderRequest({
+        products,
+        invoiceNumber,
+        userId,
+        totalPrice,
+        isOpen,
+        history,
+      }),
     );
   }
   return (

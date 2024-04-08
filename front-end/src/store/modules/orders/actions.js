@@ -21,3 +21,10 @@ export function orderFailure(payload) {
     payload,
   };
 }
+
+export function orderFinish(payload) {
+  return {
+    type: types.ORDER_FINISH,
+    payload,
+  };
+}

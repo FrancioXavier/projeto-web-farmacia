@@ -12,6 +12,8 @@ export default function (state = initialState, action) {
       newState.orders.push(action.payload.order);
       newState.quantOrders = newState.orders.length;
 
+      console.log(newState);
+
       return newState;
     }
 
@@ -21,6 +23,12 @@ export default function (state = initialState, action) {
 
     case types.ORDER_REQUEST: {
       const newState = { ...state };
+      return newState;
+    }
+
+    case types.ORDER_FINISH: {
+      const newState = { ...state };
+      newState.quantOrders = newState.orders.length;
       return newState;
     }
 

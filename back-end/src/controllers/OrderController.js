@@ -7,7 +7,7 @@ class OrderController {
 
   async getOrdersByUser(req, res) {
     try {
-      const order = await Order.find({ fkUser: req.userId });
+      const order = await Order.find({ userId: req.userId });
 
       if (!order) {
         return res.status(404).send({ mesage: 'O usuario não tem pedidos' });
@@ -43,17 +43,28 @@ class OrderController {
         userId: userId,
         invoiceNumber: req.body.invoiceNumber,
         products: req.body.products,
+        isOpen: req.body.isOpen,
       });
       await order.save();
-      res.status(200).send({ mensage: 'Pedido realizado com sucesso' });
+      res.status(200).send({ mensage: 'Pedido realizado com sucesso', order });
     } catch (error) {
       console.log(error);
       res.status(500).send({ mensage: 'Erro de requisicao' });
     }
   }
 
-  async updateOrder(req, res) {
-    res.json('updateOrder');
+  async finishOrder(req, res) {
+    try {
+      const orderId = req.orderId;
+      await Order.findByIdAndUpdate(orderId, {
+        isOpen: false,
+      });
+
+      res.status(200).send({ mensage: 'Pedido finalizado com sucesso' });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({ mensage: 'Erro de requisicao' });
+    }
   }
 
   async deleteOrder(req, res) {
