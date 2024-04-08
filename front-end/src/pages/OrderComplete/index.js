@@ -46,7 +46,7 @@ export default function OrderComplete() {
               <p className="fw-bolder fs-5 mt-5">
                 Acompanhe o Status do seu Pedido
               </p>
-              <Link to="/finishing-order" className="col-sm-5 p-0  ">
+              <Link to="/your-orders" className="col-sm-5 p-0  ">
                 <button
                   style={{
                     background: primaryDark,
