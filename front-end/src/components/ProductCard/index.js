@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { AddButton, Price } from './styled';
 import { InformationLight } from '../../config/colors';
+import { Link } from 'react-router-dom';
 
 const ProductCard = (props) => {
   return (
@@ -47,9 +48,11 @@ const ProductCard = (props) => {
               {props.productName}
             </h5>
             <Price className="card-text">{props.productPrice}</Price>
-            <AddButton href="#" className="btn btn-primary">
-              ADICIONAR
-            </AddButton>
+            <Link to="/product">
+              <AddButton href="#" className="btn btn-primary">
+                Comprar
+              </AddButton>
+            </Link>
           </div>
         </div>
       </div>
