@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { InformationLight, highPure, primaryDark } from '../../config/colors';
 import { Container } from '../../styles/GlobalStyles';
+import { Link } from 'react-router-dom';
 
 import { states } from '../../config/states';
 import './OrderData.css';
@@ -336,6 +337,13 @@ export default function ContactRegister() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-5 d-flex justify-content-end">
+          <Link to="/finishing-order" className="col-sm-5 p-0  ">
+            <button type="button" className="btn btn-primary btn-lg w-100 ">
+              Confirmar Dados
+            </button>
+          </Link>
         </div>
       </div>
     </Container>

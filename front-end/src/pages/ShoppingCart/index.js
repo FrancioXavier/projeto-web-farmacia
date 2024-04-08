@@ -3,6 +3,7 @@
 import './styleCart.css';
 import { FaShoppingBasket, FaStore } from 'react-icons/fa';
 import AllOrdes from '../../components/AllOrders';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../store/modules/orders/actions';
 import { get } from 'lodash';
@@ -53,15 +54,17 @@ export default function ShoppingCart(props) {
         >
           Continuar Comprando
         </button>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg col-sm-5"
-          onClick={(e) => {
-            handleClick(e);
-          }}
-        >
-          Fechar Pedido
-        </button>
+        <Link to="/order-data" className="col-sm-5 p-0  ">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg w-100 "
+            onClick={(e) => {
+              handleClick(e);
+            }}
+          >
+            Fechar Pedido
+          </button>
+        </Link>
       </div>
     </div>
   );
