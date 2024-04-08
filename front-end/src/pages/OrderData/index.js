@@ -341,7 +341,7 @@ export default function ContactRegister() {
         <div className="mt-5 d-flex justify-content-end">
           <Link to="/finishing-order" className="col-sm-5 p-0  ">
             <button type="button" className="btn btn-primary btn-lg w-100 ">
-              Finalizar Pedido
+              Confirmar Dados
             </button>
           </Link>
         </div>
