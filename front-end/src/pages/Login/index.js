@@ -7,45 +7,25 @@ import { InputLogin } from './styled';
 import passwordValidation from '../../config/validation/passwordValidation';
 import { toast } from 'react-toastify';
 import isEmail from 'validator/lib/isEmail';
+import { useDispatch } from 'react-redux';
+import { get } from 'lodash';
+import * as actions from '../../store/modules/auth/actions';
 
-export default function Login() {
+export default function Login(props) {
+  const dispatch = useDispatch();
+
+  const prevPath = get(props, 'location.state.prevPath', '/');
+  const history = get(props, 'history');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [digitValidation, setDigitValidation] = useState('red');
-  const [characterValidation, setCharacterValidation] = useState('red');
-  const [numberValidation, setNumberValidation] = useState('red');
-  const [uppercaseValidation, setUppercaseValidation] = useState('red');
 
-  function parametersValidation(e) {
-    if (e.match(/^.{8,15}$/)) {
-      setDigitValidation('#4ED34E');
-    } else {
-      setDigitValidation('red');
-    }
-    if (e.match(/^(?=.*[^a-zA-Z0-9])/)) {
-      setCharacterValidation('#4ED34E');
-    } else {
-      setCharacterValidation('red');
-    }
-    if (e.match(/^(?=.*\d)/)) {
-      setNumberValidation('#4ED34E');
-    } else {
-      setNumberValidation('red');
-    }
-    if (e.match(/^(?=.*[A-Z])/)) {
-      setUppercaseValidation('#4ED34E');
-    } else {
-      setUppercaseValidation('red');
-    }
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let formErrors = false;
 
     if (!passwordValidation(password)) {
-      formErrors = true;
-      toast.error('Senha inválida');
+      formErrors = false;
+      // toast.error('Senha inválida');
     }
     if (!isEmail(email)) {
       formErrors = true;
@@ -53,7 +33,9 @@ export default function Login() {
     }
 
     if (formErrors) return;
-  }
+
+    dispatch(actions.loginRequest({ email, password, prevPath, history }));
+  };
   return (
     <div className="h-100">
       <Container style={{ background: InformationLight, borderRadius: '10px' }}>
@@ -69,7 +51,7 @@ export default function Login() {
                 type="email"
                 value={email}
                 className="form-control"
-                id="exampleInputEmail1"
+                id="email"
                 aria-describedby="emailHelp"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -83,24 +65,13 @@ export default function Login() {
                 type="password"
                 value={password}
                 className="form-control"
-                id="userPassword"
+                id="password"
                 onChange={(e) => {
-                  setPassword(e.target.value),
-                    parametersValidation(e.target.value);
+                  setPassword(e.target.value);
                 }}
                 placeholder="Senha"
               />
             </InputLogin>
-            <div className="d-flex justify-content-start w-100 align-items-center">
-              <ul style={{ fontSize: '13px' }}>
-                <li style={{ color: digitValidation }}>8 a 15 digitos</li>
-                <li style={{ color: characterValidation }}>
-                  Caractere especial
-                </li>
-                <li style={{ color: numberValidation }}>Numero qualquer</li>
-                <li style={{ color: uppercaseValidation }}>Letra maiuscula</li>
-              </ul>
-            </div>
             <div className="d-flex justify-content-end w-100 align-items-center">
               <a href="" style={{ color: primaryDark, fontSize: '13px' }}>
                 Esqueceu sua senha?
@@ -121,7 +92,7 @@ export default function Login() {
           <hr />
           <p className="mb-0">
             Ainda não tem uma conta?{' '}
-            <a href="" style={{ color: primaryDark }}>
+            <a href="/contact-register" style={{ color: primaryDark }}>
               Cadastre-se
             </a>
           </p>

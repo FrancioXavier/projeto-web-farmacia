@@ -17,15 +17,18 @@ export default function Order(props) {
             </i>
           </a>
 
-          <div className="d-flex f-row justify-content-between rounded align-items-center p-3 px-5 row product-elements">
-            <div className=" d-flex flex-row col ">
-              <div>
-                <img src={props.productImg} alt="" />
+          <div className="d-flex f-row justify-content-between rounded align-items-center p-3 px-4 row product-elements">
+            <div className=" d-flex flex-row col img- row">
+              <div className="img-product  col-sm-6">
+                <img className="img  w-100" src={props.productImg} alt="" />
               </div>
-              <div className="d-flex flex-column col-8 p-2 ">
-                <h3 className="product-name">{props.productName}</h3>
-                <p className="mb-0 text-secondary">{props.productDecription}</p>
-                <p className="text-secondary">{props.productGrams}</p>
+
+              <div className="d-flex flex-column  col-sm-6 p-2 ">
+                <h3 className="product-name ">{props.productName}</h3>
+                <p className="mb-0 text-secondary ">
+                  {props.productDecription}
+                </p>
+                <p className="text-secondary ">{props.productGrams}</p>
               </div>
             </div>
             {/* <div className="  col">

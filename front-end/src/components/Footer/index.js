@@ -13,7 +13,7 @@ export default function Footer() {
         >
           <div className="col-8 d-flex align-items-center content-footer logo">
             <img src={LogoUni} alt="" />
-            <h4 className="my-2 d-flex content-footer">University Pharmacy</h4>
+            <h4 className="m-2 d-flex content-footer">University Pharmacy</h4>
           </div>
           <div className="col-2 d-flex column content-footer social-medias ">
             <a href="">
@@ -37,10 +37,24 @@ export default function Footer() {
           style={{ background: primaryDark, color: '#fff' }}
           className="row d-flex justify-content-around align-items-center p-4 footer"
         >
-          <p className="col-2 d-flex justify-content-center consumer-protection content-footer">
-            Politica do consumidor
-          </p>
-          <p className="col-3 content-footer">Atendimento</p>
+          <a
+            href=""
+            className="col-2 d-flex justify-content-center consumer-protection content-footer"
+          >
+            <p
+              className="col-2 d-flex justify-content-center consumer-protection w-100 content-footer"
+              style={{ color: highPure }}
+            >
+              Politica do consumidor
+            </p>
+          </a>
+          <a
+            href=""
+            className="col-3 content-footer"
+            style={{ color: highPure }}
+          >
+            <p>Atendimento</p>
+          </a>
           <p className="col-6 d-flex copyright content-footer">
             © 2024 UniFarm. Todos os direitos reservados.
           </p>

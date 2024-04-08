@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { InformationLight } from '../../config/colors';
 import { Container } from '../../styles/GlobalStyles';
 
+import { toast } from 'react-toastify';
 import { states } from '../../config/states';
 import './AddressRegister.css';
-import { toast } from 'react-toastify';
 
 export default function AddressRegister() {
   const [zip, setZip] = useState('');
@@ -20,6 +20,10 @@ export default function AddressRegister() {
     const result = termConditions ? false : true;
     setTermConditions(result);
     console.log(result);
+  }
+
+  function zipCodeDate() {
+    console.log('Requisição do dados do cep (cidade, estado, rua ,bairro)');
   }
 
   function handleSubmit(e) {
@@ -52,6 +56,8 @@ export default function AddressRegister() {
               CEP
             </label>
             <input
+              autoFocus
+              onBlur={zipCodeDate}
               value={zip}
               onChange={(event) => setZip(event.target.value)}
               placeholder="Digite o seu CEP"
