@@ -1,6 +1,7 @@
 import OrderInfo from '../../components/OrderInfo';
 import { primaryDark } from '../../config/colors';
 import { MainContent, OrderInfos } from './styled';
+import { Link } from 'react-router-dom';
 
 export default function OrderComplete() {
   return (
@@ -45,13 +46,15 @@ export default function OrderComplete() {
               <p className="fw-bolder fs-5 mt-5">
                 Acompanhe o Status do seu Pedido
               </p>
-              <button
-                style={{
-                  background: primaryDark,
-                }}
-              >
-                Verificar pedido
-              </button>
+              <Link to="/your-orders" className="col-sm-5 p-0  ">
+                <button
+                  style={{
+                    background: primaryDark,
+                  }}
+                >
+                  Verificar pedido
+                </button>
+              </Link>
             </OrderInfos>
           </div>
         </MainContent>

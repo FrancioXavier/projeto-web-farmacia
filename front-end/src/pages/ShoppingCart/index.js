@@ -3,6 +3,7 @@
 import './styleCart.css';
 import { FaShoppingBasket, FaStore } from 'react-icons/fa';
 import AllOrdes from '../../components/AllOrders';
+import { Link } from 'react-router-dom';
 
 export default function ShoppingCart() {
   return (
@@ -29,9 +30,11 @@ export default function ShoppingCart() {
         >
           Continuar Comprando
         </button>
-        <button type="button" className="btn btn-primary btn-lg col-sm-5  ">
-          Fechar Pedido
-        </button>
+        <Link to="/order-data" className="col-sm-5 p-0  ">
+          <button type="button" className="btn btn-primary btn-lg w-100 ">
+            Fechar Pedido
+          </button>
+        </Link>
       </div>
     </div>
   );

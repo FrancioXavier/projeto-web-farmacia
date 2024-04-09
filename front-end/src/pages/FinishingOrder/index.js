@@ -1,6 +1,7 @@
 import AllOrdes from '../../components/AllOrders';
 import { OrderInfos } from '../OrderComplete/styled';
 import { primaryDark } from '../../config/colors';
+import { Link } from 'react-router-dom';
 
 export default function FinishingOrder() {
   return (
@@ -43,13 +44,15 @@ export default function FinishingOrder() {
                 <p>Total do Pedido:</p>
                 <h5>R$ 77,70</h5>
               </div>
-              <button
-                style={{
-                  background: primaryDark,
-                }}
-              >
-                Fazer o Pedido
-              </button>
+              <Link to="/order-complete" className="col-sm-5 p-0  ">
+                <button
+                  style={{
+                    background: primaryDark,
+                  }}
+                >
+                  Fazer o Pedido
+                </button>
+              </Link>
             </OrderInfos>
           </div>
         </div>

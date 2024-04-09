@@ -3,6 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import helmet from 'helmet';
 import { resolve } from 'path';
+import orderRoutes from './routes/orderRoutes';
 
 import homeRoutes from './routes/homeRoutes';
 import userRoutes from './routes/userRoutes';
@@ -48,6 +49,7 @@ class App {
     this.app.use('/category', catergoryRoutes);
     this.app.use('/product', productRoutes);
     this.app.use('/photo', photoRoutes);
+    this.app.use('/orders', orderRoutes);
   }
 }
 
