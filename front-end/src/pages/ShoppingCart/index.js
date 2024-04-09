@@ -24,12 +24,14 @@ export default function ShoppingCart() {
         <h4>R$ 25,90</h4>
       </div>
       <div className=" d-flex justify-content-between m-4 mb-5 mt-5 buttons row">
-        <button
-          type="button"
-          className="btn btn-outline-primary btn-lg col-sm-5"
-        >
-          Continuar Comprando
-        </button>
+        <Link to="/" className="col-sm-5 p-0  ">
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-lg w-100"
+          >
+            Continuar Comprando
+          </button>
+        </Link>
         <Link to="/order-data" className="col-sm-5 p-0  ">
           <button type="button" className="btn btn-primary btn-lg w-100 ">
             Fechar Pedido

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { InformationLight } from '../../config/colors';
 import { Container } from '../../styles/GlobalStyles';
 
+import { get } from 'lodash';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import cpfValidation from '../../config/validation/cpfValidation';
 import passwordValidation from '../../config/validation/passwordValidation';
-import './ContactRegister.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { get } from 'lodash';
 import * as actions from '../../store/modules/auth/actions';
+import './ContactRegister.css';
 
 export default function ContactRegister(props) {
   console.log(useSelector((state) => state.auth.user));
@@ -192,13 +192,13 @@ export default function ContactRegister(props) {
           </div>
           <div className="col-md-6">
             <label htmlFor="telephone1" className="form-label">
-              Telefone 1
+              Telefone 1 somente números com DDD
             </label>
             <input
               type="tel"
               className="form-control"
               id="telephone1"
-              placeholder="Digite um telefone"
+              placeholder="Digite um telefone somente números com DDD"
               value={telephone1}
               onChange={(event) => setTelephone1(event.target.value)}
               required
@@ -206,13 +206,13 @@ export default function ContactRegister(props) {
           </div>
           <div className="col-md-6">
             <label htmlFor="telephone2" className="form-label">
-              Telefone 2
+              Telefone 2 somente números com DDD
             </label>
             <input
               type="tel"
               className="form-control"
               id="telephone2"
-              placeholder="Digite outro telefone"
+              placeholder="Digite um telefone"
               value={telephone2}
               onChange={(event) => setTelephone2(event.target.value)}
             />

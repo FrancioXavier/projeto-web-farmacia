@@ -1,9 +1,32 @@
 import AllOrdes from '../../components/AllOrders';
 import { OrderInfos } from '../OrderComplete/styled';
 import { primaryDark } from '../../config/colors';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as actions from '../../store/modules/orders/actions';
+import { get } from 'lodash';
 
-export default function FinishingOrder() {
+export default function FinishingOrder(props) {
+  const dispatch = useDispatch();
+  const history = get(props, 'history');
+  function handleClick(e) {
+    e.preventDefault();
+    const products = ['6612ad1a9673c9f94b5f63d3'];
+    const invoiceNumber = 123123;
+    const userId = '660a40bf8a43ff3774d22143';
+    const totalPrice = 500;
+    const isOpen = true;
+
+    dispatch(
+      actions.orderRequest({
+        products,
+        invoiceNumber,
+        userId,
+        totalPrice,
+        isOpen,
+        history,
+      }),
+    );
+  }
   return (
     <div>
       <div className="container">
@@ -44,15 +67,16 @@ export default function FinishingOrder() {
                 <p>Total do Pedido:</p>
                 <h5>R$ 77,70</h5>
               </div>
-              <Link to="/order-complete" className="col-sm-5 p-0  ">
-                <button
-                  style={{
-                    background: primaryDark,
-                  }}
-                >
-                  Fazer o Pedido
-                </button>
-              </Link>
+              <button
+                style={{
+                  background: primaryDark,
+                }}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                Fazer o Pedido
+              </button>
             </OrderInfos>
           </div>
         </div>

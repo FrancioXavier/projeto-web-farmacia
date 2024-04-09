@@ -4,12 +4,13 @@ import { FaTrashAlt, FaWindowClose } from 'react-icons/fa';
 import { InformationLight } from '../../config/colors';
 import PropTypes from 'prop-types';
 import './style.css';
+import { Trash } from './trash';
 // import Dorflex from '../../config/img/dorflex.png';
 
 export default function Order(props) {
   return (
     <section className="mt-2 mb-2">
-      <div className="container ">
+      <div id="cardComponent" className="container ">
         <div style={{ backgroundColor: InformationLight }}>
           <a href="" className="d-flex justify-content-end m-2 close-element">
             <i className="close-element">
@@ -50,9 +51,9 @@ export default function Order(props) {
                 <h4>{props.productPrice}</h4>
               </div>
               <h4 className=" total-price">{props.productPrice}</h4>
-              <div className="   trash">
+              <a onClick={Trash} className=" trash">
                 <FaTrashAlt size={20} />
-              </div>
+              </a>
             </div>
           </div>
         </div>

@@ -86,6 +86,7 @@ class UserController {
         addressCity,
         addressNeighborhood,
         addressComplement,
+        addressNumber,
       } = updatedUser;
 
       if (!updatedUser)
@@ -103,6 +104,8 @@ class UserController {
         addressCity,
         addressNeighborhood,
         addressComplement,
+        addressPublicPlace,
+        addressNumber,
       });
     } catch (error) {
       console.log(error);

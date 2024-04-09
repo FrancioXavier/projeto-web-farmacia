@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: 'PROJETO-WEB',
       storage,
-      whitelist: ['auth', 'ShoppingCart'],
+      whitelist: ['auth', 'shoppingCart', 'orders'],
     },
     reducers,
   );
