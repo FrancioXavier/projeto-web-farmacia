@@ -6,7 +6,7 @@ const upload = multer(multerConfig).single('file');
 class PhotoController {
   async store(req, res) {
     return upload(req, res, async (error) => {
-      req.body = '6612ad1a9673c9f94b5f63d3';
+      console.log(req.params.id);
       if (error) {
         return res.status(400).json({
           errors: [error.code],
@@ -15,7 +15,7 @@ class PhotoController {
 
       try {
         const { originalname, filename } = req.file;
-        const { productId } = req.body;
+        const productId = req.params.id;
         const foto = await Photo.create({
           originalname,
           filename,
