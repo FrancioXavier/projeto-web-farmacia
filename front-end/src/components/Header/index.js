@@ -33,13 +33,14 @@ export default function Header() {
           <div className="col-3 input-group rounded searchInput">
             <input
               type="search"
-              className="form-control rounded p-2"
+              className="form-control rounded p-2 "
               placeholder="Encontre o que deseja "
               aria-label="Search"
             />
             <span
               className="input-group-text border border-0 "
               id="search-addon"
+              style={{ marginLeft: '10px' }}
             >
               <i>
                 <FaSearch size={18} />
