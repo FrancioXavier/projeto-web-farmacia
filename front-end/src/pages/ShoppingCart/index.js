@@ -1,9 +1,9 @@
 // import Dorflex from '../../config/img/dorflex.png';
 
-import './styleCart.css';
 import { FaShoppingBasket, FaStore } from 'react-icons/fa';
-import AllOrdes from '../../components/AllOrders';
 import { Link } from 'react-router-dom';
+import AllOrdes from '../../components/AllOrders';
+import './styleCart.css';
 
 export default function ShoppingCart() {
   return (

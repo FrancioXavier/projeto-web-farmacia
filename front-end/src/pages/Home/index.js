@@ -1,12 +1,17 @@
 import React from 'react';
-import { HomeContent, SliderContainer } from './styled';
 import CarouselHome from '../../components/Carousels/CarouselHome';
 import DepartmentCard from '../../components/DepartmentCard';
+import { HomeContent, SliderContainer } from './styled';
 // import ProductCard from '../../components/ProductCard';
-import dorflex from '../../config/img/dorflex.png';
-import CarouselProduct from '../../components/Carousels/ProductCarousel';
-import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import CarouselProduct from '../../components/Carousels/ProductCarousel';
+import dorflex from '../../config/img/dorflex.png';
+import {
+  getProducts,
+  getProductsByCategory,
+} from '../../services/requestsProduct';
+
 const OPTIONS = { dragFree: true };
 const products = [
   { name: 'Nome do produto', price: '23,99', img: dorflex },
@@ -24,6 +29,24 @@ const products = [
 ];
 
 export default function Home() {
+  async function getProduct() {
+    const res = await getProducts();
+    console.log(res);
+  }
+
+  // async function getProductById() {
+  //   const res = await getProductsById();
+  //   console.log(res);
+  // }
+
+  async function getProductByCategory(category) {
+    const res = await getProductsByCategory(category);
+    console.log(res);
+  }
+
+  getProduct();
+  // getProductById('661487439b02205029082ebc');
+  getProductByCategory('Fitness');
   console.log(useSelector((state) => state.auth.user));
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
