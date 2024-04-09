@@ -3,11 +3,41 @@
 Documentação de ferramentas e de usabilidade do repositório.
 
 ## Instalação
-Após clonar o repositório instale as dependências e rode o projeto
-```bash
-  npm install
-  npm start
-```
+  1 - Faça a clonagem do repositório do Github
+  ```bash
+    https://github.com/FrancioXavier/projeto-web-farmacia.git
+  ```
+  2 - Após a clonagem do projeto entre na pasta do projeto para configurar o front-end e back-end
+  ```bash
+    cd projeto-web-farmacia
+  ```
+  3 - Configurando o front-end
+  ```bash
+    cd front-end
+    npm install
+  ```
+  4 - Run o front-end
+  ```bash
+    npm start
+  ```
+  5 - Configurando o back-end na pasta projeto-web-farmacia
+  ```bash
+    cd back-end
+    npm install
+  ```
+  6 - Arquivo .env do back-end
+  ```bash
+    PORT=3002
+    MONGO_URL=mongodb+srv://francioxavier:dSp5aR9t4Mcmyfg7@projeto-web.mfspdkz.mongodb.net/?retryWrites=true&w=majority
+    PORT_FRONT=3000
+    TOKEN_SECRET=teste
+    TOKEN_EXPIRATION=1h
+  ```
+  7 - Run o back-end
+  ```bash
+    npm run dev
+  ```
+## Para desenvolvedores
 É utilizado formatadores de código como Prettier e ESLint para melhorar qualidade do código. É recomendável adicionar essas configurações ao seu settings.json do VScode para que o código seja formatado automaticamente entre outras vantagens de desenvolvimento e para acompanhar o padrão do projeto corretamente.
 
 Segue as configurações abaixo:
