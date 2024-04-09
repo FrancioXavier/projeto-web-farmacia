@@ -1,9 +1,20 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { InformationLight, primaryDark } from '../../config/colors';
 import imageTest from '../../config/img/pampers-teste.png';
+import * as actions from '../../store/modules/ShoppingCart/actions';
+
 import { InputWrapper } from './styled';
 export default function Product() {
+  const dispatch = useDispatch();
   const [value, setValue] = useState(0);
+
+  function handleSubmit() {
+    const product = 'produto';
+
+    dispatch(actions.addToCart({ product }));
+  }
+
   return (
     <div className="container-fluid w-75 d-flex align-items-center justify-content-center">
       <div className="row m-5">
@@ -92,6 +103,7 @@ export default function Product() {
                     type="submit"
                     className="btn w-50"
                     style={{ backgroundColor: primaryDark, color: '#fff' }}
+                    onClick={handleSubmit}
                   >
                     Adicionar
                   </button>
