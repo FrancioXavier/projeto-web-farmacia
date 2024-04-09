@@ -14,7 +14,7 @@ class ProductController {
 
   async getProductById(req, res) {
     try {
-      const id = req.productId;
+      const id = req.params.productId;
       const product = await Product.findById(id);
 
       if (!product) {
@@ -27,17 +27,18 @@ class ProductController {
     }
   }
 
-  async getProductByCategory(req, res) {
+  async getProductsByCategory(req, res) {
     try {
-      const category = req.categoryName;
-      const product = await Product.findOne({ categoryName: category });
+      const category = req.params.category;
+      console.log(category);
+      const product = await Product.find({ categoryName: category });
 
       if (!product) {
-        return res.status(404).json({ message: 'Product not found' });
+        return res.status(404).json({ message: 'AQUI Product not found' });
       }
       res.status(200).send(product);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       return res.status(500).json({ message: 'Request error' });
     }
   }
@@ -67,7 +68,7 @@ class ProductController {
 
   async updateProduct(req, res) {
     try {
-      const id = req.productId;
+      const id = req.params.productId;
       const newProduct = req.body;
       const product = await Product.findByIdAndUpdate(id, newProduct, {
         new: true,
@@ -85,7 +86,7 @@ class ProductController {
 
   async deleteProduct(req, res) {
     try {
-      const id = req.productId;
+      const id = req.params.productId;
       const productDelete = await Product.findByIdAndDelete(id);
 
       if (!productDelete) {

@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CarouselHome from '../../components/Carousels/CarouselHome';
 import DepartmentCard from '../../components/DepartmentCard';
 import { HomeContent, SliderContainer } from './styled';
-// import ProductCard from '../../components/ProductCard';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import CarouselProduct from '../../components/Carousels/ProductCarousel';
 import dorflex from '../../config/img/dorflex.png';
 import {
@@ -13,54 +10,27 @@ import {
 } from '../../services/requestsProduct';
 
 const OPTIONS = { dragFree: true };
-const products = [
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-  { name: 'Nome do produto', price: '23,99', img: dorflex },
-];
 
 export default function Home() {
-  async function getProduct() {
-    const res = await getProducts();
-    console.log(res);
-  }
+  const [products, setProducts] = useState([]);
 
-  // async function getProductById() {
-  //   const res = await getProductsById();
-  //   console.log(res);
-  // }
-
-  async function getProductByCategory(category) {
-    const res = await getProductsByCategory(category);
-    console.log(res);
-  }
-
-  getProduct();
-  // getProductById('661487439b02205029082ebc');
-  getProductByCategory('Fitness');
-  console.log(useSelector((state) => state.auth.user));
-
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
-  function handleLoad() {
-    if (!isLoggedIn) {
-      setTimeout(() => {
-        toast.info('Nao tem uma conta? Crie agora!');
-      }, 60000);
+  useEffect(() => {
+    async function getProduct() {
+      const products = await getProducts();
+      setProducts(products);
     }
-  }
+
+    async function getProductByCategory(category) {
+      const res = await getProductsByCategory(category);
+      console.log(res);
+    }
+
+    getProductByCategory('Fitness');
+    getProduct();
+  }, []);
   return (
     <>
-      <HomeContent className="container" onLoad={handleLoad()}>
+      <HomeContent className="container">
         <SliderContainer>
           <CarouselHome />
         </SliderContainer>

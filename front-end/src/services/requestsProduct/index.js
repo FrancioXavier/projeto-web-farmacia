@@ -25,7 +25,7 @@ export async function getProductsById(id) {
 export async function getProductsByCategory(category) {
   try {
     console.log(category);
-    const res = await axios.get(`/product/${category}`);
+    const res = await axios.get(`/product/category/${category}`);
     console.log(res.data);
     return res.data;
   } catch (error) {

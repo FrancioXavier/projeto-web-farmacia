@@ -9,6 +9,9 @@ function CarouselProduct(props) {
   const { products, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
+  console.log('aq');
+  console.log(products);
+
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -23,8 +26,8 @@ function CarouselProduct(props) {
             <div className="embla__slide" key={index}>
               <ProductCard
                 productImg={product.img}
-                productName={product.name}
-                productPrice={product.price}
+                productName={product.productName}
+                productPrice={`R$${product.priceProduct}`}
               />
             </div>
           ))}

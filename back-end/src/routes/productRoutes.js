@@ -8,7 +8,7 @@ router.get('/', productController.getProducts);
 
 router.get('/:id', productController.getProductById);
 
-router.get('/:category', productController.getProductByCategory);
+router.get('/category/:category', productController.getProductsByCategory);
 
 //rotas de desenvolvimento
 router.put('/', productController.updateProduct);
