@@ -4,6 +4,7 @@ import { PrevButton, NextButton, usePrevNextButtons } from './CarouselButtons';
 import useEmblaCarousel from 'embla-carousel-react';
 import ProductCard from '../../ProductCard';
 import { CarouselContainer } from './styled';
+import img from '../../../config/img/pampers-teste.png';
 
 function CarouselProduct(props) {
   const { products, options } = props;
@@ -25,7 +26,7 @@ function CarouselProduct(props) {
           {products.map((product, index) => (
             <div className="embla__slide" key={index}>
               <ProductCard
-                productImg={product.img}
+                productImg={img}
                 productName={product.productName}
                 productPrice={`R$${product.priceProduct}`}
               />
