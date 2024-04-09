@@ -10,6 +10,7 @@ import userRoutes from './routes/userRoutes';
 import tokenRoutes from './routes/tokenRoutes';
 import catergoryRoutes from './routes/categoryRoute';
 import productRoutes from './routes/productRoutes';
+import photoRoutes from './routes/photoRoutes';
 
 const whiteList = [`http://localhost:3000`];
 
@@ -47,6 +48,7 @@ class App {
     this.app.use('/tokens', tokenRoutes);
     this.app.use('/category', catergoryRoutes);
     this.app.use('/product', productRoutes);
+    this.app.use('/photo', photoRoutes);
     this.app.use('/orders', orderRoutes);
   }
 }

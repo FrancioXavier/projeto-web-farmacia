@@ -17,3 +17,6 @@ export const ORDER_REQUEST = 'ORDER_REQUEST';
 export const ORDER_SUCCESS = 'ORDER_SUCCESS';
 export const ORDER_FAILURE = 'ORDER_FAILURE';
 export const ORDER_FINISH = 'ORDER_FINISH';
+
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_FROM_CART = 'DELETE_FROM_CART';
