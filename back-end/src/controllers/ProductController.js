@@ -53,14 +53,14 @@ class ProductController {
         imageProduct: req.body.imageProduct,
       });
 
-      await Product.save();
+      await product.save();
 
       if (!product) {
         return res.status(400).json({ message: 'Error when creating product' });
       }
       res.status(201).json(product);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       return res.status(500).json({ message: 'Request error' });
     }
   }
