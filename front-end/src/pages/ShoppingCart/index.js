@@ -4,32 +4,8 @@ import './styleCart.css';
 import { FaShoppingBasket, FaStore } from 'react-icons/fa';
 import AllOrdes from '../../components/AllOrders';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import * as actions from '../../store/modules/orders/actions';
-import { get } from 'lodash';
 
-export default function ShoppingCart(props) {
-  const dispatch = useDispatch();
-  const history = get(props, 'history');
-  function handleClick(e) {
-    e.preventDefault();
-    const products = ['6612ad1a9673c9f94b5f63d3'];
-    const invoiceNumber = 123123;
-    const userId = '660a40bf8a43ff3774d22143';
-    const totalPrice = 500;
-    const isOpen = true;
-
-    dispatch(
-      actions.orderRequest({
-        products,
-        invoiceNumber,
-        userId,
-        totalPrice,
-        isOpen,
-        history,
-      }),
-    );
-  }
+export default function ShoppingCart() {
   return (
     <div className="container">
       <div className="title-icon d-flex">
@@ -55,13 +31,7 @@ export default function ShoppingCart(props) {
           Continuar Comprando
         </button>
         <Link to="/order-data" className="col-sm-5 p-0  ">
-          <button
-            type="button"
-            className="btn btn-primary btn-lg w-100 "
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
+          <button type="button" className="btn btn-primary btn-lg w-100 ">
             Fechar Pedido
           </button>
         </Link>

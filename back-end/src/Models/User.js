@@ -54,6 +54,9 @@ const userSchema = new Schema(
     addressPublicPlace: {
       type: String,
     },
+    addressNumber: {
+      type: String,
+    },
   },
   { timestamps: true },
 );
