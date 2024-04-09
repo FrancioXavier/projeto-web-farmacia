@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { InformationLight, primaryDark } from '../../config/colors';
 import imageTest from '../../config/img/pampers-teste.png';
-import * as actions from '../../store/modules/ShoppingCart/actions';
+import * as actions from '../../store/modules/shoppingCart/actions';
 
 import { InputWrapper } from './styled';
 export default function Product() {
