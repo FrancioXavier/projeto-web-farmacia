@@ -28,7 +28,7 @@ Documentação de ferramentas e de usabilidade do repositório.
   6 - Arquivo .env do back-end
   ```bash
     PORT=3002
-    MONGO_URL=mongodb+srv://francioxavier:dSp5aR9t4Mcmyfg7@projeto-web.mfspdkz.mongodb.net/?retryWrites=true&w=majority
+    MONGO_URL=LINK_DO_BANCO_MONGODB
     PORT_FRONT=3000
     TOKEN_SECRET=teste
     TOKEN_EXPIRATION=1h
